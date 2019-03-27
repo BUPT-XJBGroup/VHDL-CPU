@@ -1,0 +1,224 @@
+Analysis & Synthesis report for CPU
+Wed Mar 27 23:44:40 2019
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                               ;
++-----------------------------+----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Wed Mar 27 23:44:40 2019        ;
+; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
+; Revision Name               ; CPU                                          ;
+; Top-level Entity Name       ; CPU                                          ;
+; Family                      ; MAX7000S                                     ;
+; Total macrocells            ; 19                                           ;
+; Total pins                  ; 41                                           ;
++-----------------------------+----------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                 ;
++--------------------------------------------------------------+----------------+---------------+
+; Option                                                       ; Setting        ; Default Value ;
++--------------------------------------------------------------+----------------+---------------+
+; Device                                                       ; EPM7128SLC84-6 ;               ;
+; Top-level entity name                                        ; CPU            ; CPU           ;
+; Family name                                                  ; MAX7000S       ; Stratix II    ;
+; Use Generated Physical Constraints File                      ; Off            ;               ;
+; Use smart compilation                                        ; Off            ; Off           ;
+; Create Debugging Nodes for IP Cores                          ; Off            ; Off           ;
+; Preserve fewer node names                                    ; On             ; On            ;
+; Disable OpenCore Plus hardware evaluation                    ; Off            ; Off           ;
+; Verilog Version                                              ; Verilog_2001   ; Verilog_2001  ;
+; VHDL Version                                                 ; VHDL93         ; VHDL93        ;
+; State Machine Processing                                     ; Auto           ; Auto          ;
+; Safe State Machine                                           ; Off            ; Off           ;
+; Extract Verilog State Machines                               ; On             ; On            ;
+; Extract VHDL State Machines                                  ; On             ; On            ;
+; Ignore Verilog initial constructs                            ; Off            ; Off           ;
+; Iteration limit for constant Verilog loops                   ; 5000           ; 5000          ;
+; Iteration limit for non-constant Verilog loops               ; 250            ; 250           ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On             ; On            ;
+; Parallel Synthesis                                           ; Off            ; Off           ;
+; NOT Gate Push-Back                                           ; On             ; On            ;
+; Power-Up Don't Care                                          ; On             ; On            ;
+; Remove Duplicate Registers                                   ; On             ; On            ;
+; Ignore CARRY Buffers                                         ; Off            ; Off           ;
+; Ignore CASCADE Buffers                                       ; Off            ; Off           ;
+; Ignore GLOBAL Buffers                                        ; Off            ; Off           ;
+; Ignore ROW GLOBAL Buffers                                    ; Off            ; Off           ;
+; Ignore LCELL Buffers                                         ; Auto           ; Auto          ;
+; Ignore SOFT Buffers                                          ; Off            ; Off           ;
+; Limit AHDL Integers to 32 Bits                               ; Off            ; Off           ;
+; Optimization Technique                                       ; Speed          ; Speed         ;
+; Allow XOR Gate Usage                                         ; On             ; On            ;
+; Auto Logic Cell Insertion                                    ; On             ; On            ;
+; Parallel Expander Chain Length                               ; 4              ; 4             ;
+; Auto Parallel Expanders                                      ; On             ; On            ;
+; Auto Open-Drain Pins                                         ; On             ; On            ;
+; Auto Resource Sharing                                        ; Off            ; Off           ;
+; Maximum Fan-in Per Macrocell                                 ; 100            ; 100           ;
+; Use LogicLock Constraints during Resource Balancing          ; On             ; On            ;
+; Ignore translate_off and synthesis_off directives            ; Off            ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report           ; On             ; On            ;
+; HDL message level                                            ; Level2         ; Level2        ;
+; Suppress Register Optimization Related Messages              ; Off            ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100            ; 100           ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100            ; 100           ;
+; Block Design Naming                                          ; Auto           ; Auto          ;
+; Synthesis Effort                                             ; Auto           ; Auto          ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On             ; On            ;
+; Analysis & Synthesis Message Level                           ; Medium         ; Medium        ;
++--------------------------------------------------------------+----------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                              ;
++----------------------------------+-----------------+-----------------+------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path ;
++----------------------------------+-----------------+-----------------+------------------------------+
+; CPU.vhd                          ; yes             ; User VHDL File  ; D:/codes/VHDL-CPU/CPU.vhd    ;
++----------------------------------+-----------------+-----------------+------------------------------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++----------------------+----------------------+
+; Resource             ; Usage                ;
++----------------------+----------------------+
+; Logic cells          ; 19                   ;
+; Total registers      ; 0                    ;
+; I/O pins             ; 41                   ;
+; Maximum fan-out node ; ~GND~0               ;
+; Maximum fan-out      ; 1                    ;
+; Total fan-out        ; 19                   ;
+; Average fan-out      ; 0.32                 ;
++----------------------+----------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                 ;
++----------------------------+------------+------+---------------------+--------------+
+; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+------------+------+---------------------+--------------+
+; |CPU                       ; 19         ; 41   ; |CPU                ; work         ;
++----------------------------+------------+------+---------------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Mar 27 23:44:37 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
+Info: Found 2 design units, including 1 entities, in source file CPU.vhd
+    Info: Found design unit 1: CPU-arc
+    Info: Found entity 1: CPU
+Info: Elaborating entity "CPU" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "DRW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "PCINC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LPC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LAR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "PCADD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "ARINC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SELCTL" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "MEMW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "STOP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LIR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LDZ" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LDC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "CIN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "M" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "ABUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SBUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "MBUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SHORT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LONG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DRW" is stuck at GND
+    Warning (13410): Pin "PCINC" is stuck at GND
+    Warning (13410): Pin "LPC" is stuck at GND
+    Warning (13410): Pin "LAR" is stuck at GND
+    Warning (13410): Pin "PCADD" is stuck at GND
+    Warning (13410): Pin "ARINC" is stuck at GND
+    Warning (13410): Pin "SELCTL" is stuck at GND
+    Warning (13410): Pin "MEMW" is stuck at GND
+    Warning (13410): Pin "STOP" is stuck at GND
+    Warning (13410): Pin "LIR" is stuck at GND
+    Warning (13410): Pin "LDZ" is stuck at GND
+    Warning (13410): Pin "LDC" is stuck at GND
+    Warning (13410): Pin "CIN" is stuck at GND
+    Warning (13410): Pin "M" is stuck at GND
+    Warning (13410): Pin "ABUS" is stuck at GND
+    Warning (13410): Pin "SBUS" is stuck at GND
+    Warning (13410): Pin "MBUS" is stuck at GND
+    Warning (13410): Pin "SHORT" is stuck at GND
+    Warning (13410): Pin "LONG" is stuck at GND
+Warning: Design contains 22 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLR"
+    Warning (15610): No output dependent on input pin "T3"
+    Warning (15610): No output dependent on input pin "C"
+    Warning (15610): No output dependent on input pin "Z"
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "IR[0]"
+    Warning (15610): No output dependent on input pin "IR[1]"
+    Warning (15610): No output dependent on input pin "IR[2]"
+    Warning (15610): No output dependent on input pin "IR[3]"
+    Warning (15610): No output dependent on input pin "W[0]"
+    Warning (15610): No output dependent on input pin "W[1]"
+    Warning (15610): No output dependent on input pin "W[2]"
+    Warning (15610): No output dependent on input pin "S[0]"
+    Warning (15610): No output dependent on input pin "S[1]"
+    Warning (15610): No output dependent on input pin "S[2]"
+    Warning (15610): No output dependent on input pin "S[3]"
+    Warning (15610): No output dependent on input pin "SEL01[0]"
+    Warning (15610): No output dependent on input pin "SEL01[1]"
+    Warning (15610): No output dependent on input pin "SEL23[0]"
+    Warning (15610): No output dependent on input pin "SEL23[1]"
+Info: Implemented 60 device resources after synthesis - the final resource count might be different
+    Info: Implemented 22 input pins
+    Info: Implemented 19 output pins
+    Info: Implemented 19 macrocells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 260 megabytes
+    Info: Processing ended: Wed Mar 27 23:44:40 2019
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
