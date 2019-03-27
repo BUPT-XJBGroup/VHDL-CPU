@@ -1,5 +1,5 @@
 Simulator report for CPU
-Wed Mar 27 23:37:28 2019
+Thu Mar 28 00:00:18 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -45,7 +45,7 @@ applicable agreement for further details.
 +-----------------------------+----------------+
 ; Simulation Start Time       ; 0 ps           ;
 ; Simulation End Time         ; 1.0 us         ;
-; Simulation Netlist Size     ; 17 nodes       ;
+; Simulation Netlist Size     ; 68 nodes       ;
 ; Simulation Coverage         ;       0.00 %   ;
 ; Total Number of Transitions ; 0              ;
 ; Simulation Breakpoints      ; 0              ;
@@ -95,12 +95,12 @@ Please use Quartus II to view the waveform report data.
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
 ; Total coverage as a percentage                      ;       0.00 % ;
-; Total nodes checked                                 ; 17           ;
-; Total output ports checked                          ; 12           ;
+; Total nodes checked                                 ; 68           ;
+; Total output ports checked                          ; 54           ;
 ; Total output ports with complete 1/0-value coverage ; 0            ;
-; Total output ports with no 1/0-value coverage       ; 12           ;
-; Total output ports with no 1-value coverage         ; 12           ;
-; Total output ports with no 0-value coverage         ; 12           ;
+; Total output ports with no 1/0-value coverage       ; 54           ;
+; Total output ports with no 1-value coverage         ; 54           ;
+; Total output ports with no 0-value coverage         ; 54           ;
 +-----------------------------------------------------+--------------+
 
 
@@ -113,45 +113,129 @@ The following table displays output ports that toggle between 1 and 0 during sim
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+---------------------------------------------------+
-; Missing 1-Value Coverage                          ;
-+-------------+------------------+------------------+
-; Node Name   ; Output Port Name ; Output Port Type ;
-+-------------+------------------+------------------+
-; |CPU|~GND~0 ; |CPU|~GND~0      ; dataout          ;
-; |CPU|~GND~1 ; |CPU|~GND~1      ; dataout          ;
-; |CPU|~GND~2 ; |CPU|~GND~2      ; dataout          ;
-; |CPU|~GND~3 ; |CPU|~GND~3      ; dataout          ;
-; |CPU|~GND~4 ; |CPU|~GND~4      ; dataout          ;
-; |CPU|~VCC~0 ; |CPU|~VCC~0      ; dataout          ;
-; |CPU|sum[0] ; |CPU|sum[0]      ; padio            ;
-; |CPU|sum[1] ; |CPU|sum[1]      ; padio            ;
-; |CPU|sum[2] ; |CPU|sum[2]      ; padio            ;
-; |CPU|sum[3] ; |CPU|sum[3]      ; padio            ;
-; |CPU|sum[4] ; |CPU|sum[4]      ; padio            ;
-; |CPU|d      ; |CPU|d           ; padio            ;
-+-------------+------------------+------------------+
++-----------------------------------------------------+
+; Missing 1-Value Coverage                            ;
++---------------+------------------+------------------+
+; Node Name     ; Output Port Name ; Output Port Type ;
++---------------+------------------+------------------+
+; |CPU|~GND~0   ; |CPU|~GND~0      ; dataout          ;
+; |CPU|~GND~1   ; |CPU|~GND~1      ; dataout          ;
+; |CPU|~GND~2   ; |CPU|~GND~2      ; dataout          ;
+; |CPU|~GND~3   ; |CPU|~GND~3      ; dataout          ;
+; |CPU|~GND~4   ; |CPU|~GND~4      ; dataout          ;
+; |CPU|~GND~5   ; |CPU|~GND~5      ; dataout          ;
+; |CPU|~GND~6   ; |CPU|~GND~6      ; dataout          ;
+; |CPU|~GND~7   ; |CPU|~GND~7      ; dataout          ;
+; |CPU|~GND~8   ; |CPU|~GND~8      ; dataout          ;
+; |CPU|~GND~9   ; |CPU|~GND~9      ; dataout          ;
+; |CPU|~GND~10  ; |CPU|~GND~10     ; dataout          ;
+; |CPU|~GND~11  ; |CPU|~GND~11     ; dataout          ;
+; |CPU|~GND~12  ; |CPU|~GND~12     ; dataout          ;
+; |CPU|~GND~13  ; |CPU|~GND~13     ; dataout          ;
+; |CPU|~GND~14  ; |CPU|~GND~14     ; dataout          ;
+; |CPU|~GND~15  ; |CPU|~GND~15     ; dataout          ;
+; |CPU|~GND~16  ; |CPU|~GND~16     ; dataout          ;
+; |CPU|~GND~17  ; |CPU|~GND~17     ; dataout          ;
+; |CPU|~GND~18  ; |CPU|~GND~18     ; dataout          ;
+; |CPU|~GND~19  ; |CPU|~GND~19     ; dataout          ;
+; |CPU|~GND~20  ; |CPU|~GND~20     ; dataout          ;
+; |CPU|~GND~21  ; |CPU|~GND~21     ; dataout          ;
+; |CPU|~GND~22  ; |CPU|~GND~22     ; dataout          ;
+; |CPU|~GND~23  ; |CPU|~GND~23     ; dataout          ;
+; |CPU|~GND~24  ; |CPU|~GND~24     ; dataout          ;
+; |CPU|~GND~25  ; |CPU|~GND~25     ; dataout          ;
+; |CPU|~GND~26  ; |CPU|~GND~26     ; dataout          ;
+; |CPU|DRW      ; |CPU|DRW         ; padio            ;
+; |CPU|PCINC    ; |CPU|PCINC       ; padio            ;
+; |CPU|LPC      ; |CPU|LPC         ; padio            ;
+; |CPU|LAR      ; |CPU|LAR         ; padio            ;
+; |CPU|PCADD    ; |CPU|PCADD       ; padio            ;
+; |CPU|ARINC    ; |CPU|ARINC       ; padio            ;
+; |CPU|SELCTL   ; |CPU|SELCTL      ; padio            ;
+; |CPU|MEMW     ; |CPU|MEMW        ; padio            ;
+; |CPU|STOP     ; |CPU|STOP        ; padio            ;
+; |CPU|LIR      ; |CPU|LIR         ; padio            ;
+; |CPU|LDZ      ; |CPU|LDZ         ; padio            ;
+; |CPU|LDC      ; |CPU|LDC         ; padio            ;
+; |CPU|CIN      ; |CPU|CIN         ; padio            ;
+; |CPU|M        ; |CPU|M           ; padio            ;
+; |CPU|ABUS     ; |CPU|ABUS        ; padio            ;
+; |CPU|SBUS     ; |CPU|SBUS        ; padio            ;
+; |CPU|MBUS     ; |CPU|MBUS        ; padio            ;
+; |CPU|SHORT    ; |CPU|SHORT       ; padio            ;
+; |CPU|LONG     ; |CPU|LONG        ; padio            ;
+; |CPU|S[0]     ; |CPU|S[0]        ; padio            ;
+; |CPU|S[1]     ; |CPU|S[1]        ; padio            ;
+; |CPU|S[2]     ; |CPU|S[2]        ; padio            ;
+; |CPU|S[3]     ; |CPU|S[3]        ; padio            ;
+; |CPU|SEL01[0] ; |CPU|SEL01[0]    ; padio            ;
+; |CPU|SEL01[1] ; |CPU|SEL01[1]    ; padio            ;
+; |CPU|SEL23[0] ; |CPU|SEL23[0]    ; padio            ;
+; |CPU|SEL23[1] ; |CPU|SEL23[1]    ; padio            ;
++---------------+------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+---------------------------------------------------+
-; Missing 0-Value Coverage                          ;
-+-------------+------------------+------------------+
-; Node Name   ; Output Port Name ; Output Port Type ;
-+-------------+------------------+------------------+
-; |CPU|~GND~0 ; |CPU|~GND~0      ; dataout          ;
-; |CPU|~GND~1 ; |CPU|~GND~1      ; dataout          ;
-; |CPU|~GND~2 ; |CPU|~GND~2      ; dataout          ;
-; |CPU|~GND~3 ; |CPU|~GND~3      ; dataout          ;
-; |CPU|~GND~4 ; |CPU|~GND~4      ; dataout          ;
-; |CPU|~VCC~0 ; |CPU|~VCC~0      ; dataout          ;
-; |CPU|sum[0] ; |CPU|sum[0]      ; padio            ;
-; |CPU|sum[1] ; |CPU|sum[1]      ; padio            ;
-; |CPU|sum[2] ; |CPU|sum[2]      ; padio            ;
-; |CPU|sum[3] ; |CPU|sum[3]      ; padio            ;
-; |CPU|sum[4] ; |CPU|sum[4]      ; padio            ;
-; |CPU|d      ; |CPU|d           ; padio            ;
-+-------------+------------------+------------------+
++-----------------------------------------------------+
+; Missing 0-Value Coverage                            ;
++---------------+------------------+------------------+
+; Node Name     ; Output Port Name ; Output Port Type ;
++---------------+------------------+------------------+
+; |CPU|~GND~0   ; |CPU|~GND~0      ; dataout          ;
+; |CPU|~GND~1   ; |CPU|~GND~1      ; dataout          ;
+; |CPU|~GND~2   ; |CPU|~GND~2      ; dataout          ;
+; |CPU|~GND~3   ; |CPU|~GND~3      ; dataout          ;
+; |CPU|~GND~4   ; |CPU|~GND~4      ; dataout          ;
+; |CPU|~GND~5   ; |CPU|~GND~5      ; dataout          ;
+; |CPU|~GND~6   ; |CPU|~GND~6      ; dataout          ;
+; |CPU|~GND~7   ; |CPU|~GND~7      ; dataout          ;
+; |CPU|~GND~8   ; |CPU|~GND~8      ; dataout          ;
+; |CPU|~GND~9   ; |CPU|~GND~9      ; dataout          ;
+; |CPU|~GND~10  ; |CPU|~GND~10     ; dataout          ;
+; |CPU|~GND~11  ; |CPU|~GND~11     ; dataout          ;
+; |CPU|~GND~12  ; |CPU|~GND~12     ; dataout          ;
+; |CPU|~GND~13  ; |CPU|~GND~13     ; dataout          ;
+; |CPU|~GND~14  ; |CPU|~GND~14     ; dataout          ;
+; |CPU|~GND~15  ; |CPU|~GND~15     ; dataout          ;
+; |CPU|~GND~16  ; |CPU|~GND~16     ; dataout          ;
+; |CPU|~GND~17  ; |CPU|~GND~17     ; dataout          ;
+; |CPU|~GND~18  ; |CPU|~GND~18     ; dataout          ;
+; |CPU|~GND~19  ; |CPU|~GND~19     ; dataout          ;
+; |CPU|~GND~20  ; |CPU|~GND~20     ; dataout          ;
+; |CPU|~GND~21  ; |CPU|~GND~21     ; dataout          ;
+; |CPU|~GND~22  ; |CPU|~GND~22     ; dataout          ;
+; |CPU|~GND~23  ; |CPU|~GND~23     ; dataout          ;
+; |CPU|~GND~24  ; |CPU|~GND~24     ; dataout          ;
+; |CPU|~GND~25  ; |CPU|~GND~25     ; dataout          ;
+; |CPU|~GND~26  ; |CPU|~GND~26     ; dataout          ;
+; |CPU|DRW      ; |CPU|DRW         ; padio            ;
+; |CPU|PCINC    ; |CPU|PCINC       ; padio            ;
+; |CPU|LPC      ; |CPU|LPC         ; padio            ;
+; |CPU|LAR      ; |CPU|LAR         ; padio            ;
+; |CPU|PCADD    ; |CPU|PCADD       ; padio            ;
+; |CPU|ARINC    ; |CPU|ARINC       ; padio            ;
+; |CPU|SELCTL   ; |CPU|SELCTL      ; padio            ;
+; |CPU|MEMW     ; |CPU|MEMW        ; padio            ;
+; |CPU|STOP     ; |CPU|STOP        ; padio            ;
+; |CPU|LIR      ; |CPU|LIR         ; padio            ;
+; |CPU|LDZ      ; |CPU|LDZ         ; padio            ;
+; |CPU|LDC      ; |CPU|LDC         ; padio            ;
+; |CPU|CIN      ; |CPU|CIN         ; padio            ;
+; |CPU|M        ; |CPU|M           ; padio            ;
+; |CPU|ABUS     ; |CPU|ABUS        ; padio            ;
+; |CPU|SBUS     ; |CPU|SBUS        ; padio            ;
+; |CPU|MBUS     ; |CPU|MBUS        ; padio            ;
+; |CPU|SHORT    ; |CPU|SHORT       ; padio            ;
+; |CPU|LONG     ; |CPU|LONG        ; padio            ;
+; |CPU|S[0]     ; |CPU|S[0]        ; padio            ;
+; |CPU|S[1]     ; |CPU|S[1]        ; padio            ;
+; |CPU|S[2]     ; |CPU|S[2]        ; padio            ;
+; |CPU|S[3]     ; |CPU|S[3]        ; padio            ;
+; |CPU|SEL01[0] ; |CPU|SEL01[0]    ; padio            ;
+; |CPU|SEL01[1] ; |CPU|SEL01[1]    ; padio            ;
+; |CPU|SEL23[0] ; |CPU|SEL23[0]    ; padio            ;
+; |CPU|SEL23[1] ; |CPU|SEL23[1]    ; padio            ;
++---------------+------------------+------------------+
 
 
 +---------------------+
@@ -167,25 +251,34 @@ The following table displays output ports that do not toggle to 0 during simulat
 Info: *******************************************************************
 Info: Running Quartus II Simulator
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Mar 27 23:37:27 2019
+    Info: Processing started: Thu Mar 28 00:00:17 2019
 Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off CPU -c CPU
-Info: Using vector source file "D:/codes/VHDL-CPU/CPU.vwf"
+Info: Using vector source file "D:/codes/VHDL-CPU/VHDL-CPU/CPU.vwf"
 Info: Overwriting simulation input file with simulation results
     Info: A backup of CPU.vwf called CPU.sim_ori.vwf has been created in the db folder
 Warning: Can't find signal in vector source file for input pin "|CPU|CLR"
 Warning: Can't find signal in vector source file for input pin "|CPU|T3"
+Warning: Can't find signal in vector source file for input pin "|CPU|C"
+Warning: Can't find signal in vector source file for input pin "|CPU|Z"
 Warning: Can't find signal in vector source file for input pin "|CPU|SW[0]"
 Warning: Can't find signal in vector source file for input pin "|CPU|SW[1]"
 Warning: Can't find signal in vector source file for input pin "|CPU|SW[2]"
+Warning: Can't find signal in vector source file for input pin "|CPU|IR[0]"
+Warning: Can't find signal in vector source file for input pin "|CPU|IR[1]"
+Warning: Can't find signal in vector source file for input pin "|CPU|IR[2]"
+Warning: Can't find signal in vector source file for input pin "|CPU|IR[3]"
+Warning: Can't find signal in vector source file for input pin "|CPU|W[0]"
+Warning: Can't find signal in vector source file for input pin "|CPU|W[1]"
+Warning: Can't find signal in vector source file for input pin "|CPU|W[2]"
 Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info: Simulation partitioned into 1 sub-simulations
 Info: Simulation coverage is       0.00 %
 Info: Number of transitions in simulation is 0
 Info: Vector file CPU.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
-Info: Quartus II Simulator was successful. 0 errors, 5 warnings
+Info: Quartus II Simulator was successful. 0 errors, 14 warnings
     Info: Peak virtual memory: 175 megabytes
-    Info: Processing ended: Wed Mar 27 23:37:28 2019
+    Info: Processing ended: Thu Mar 28 00:00:18 2019
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
