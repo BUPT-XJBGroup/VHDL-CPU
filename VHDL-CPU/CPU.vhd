@@ -36,23 +36,22 @@ entity CPU is
 		CIN,
 		LONG,
 		SHORT,
-		QD,
 		STOP,		--观察使用
 		LDC,		--为1时T3的上升沿保存进位
 		LDZ			--为1时T3的上升沿保存结果为0的标志
 		: out std_logic;
 		S			--S3210
-		: in std_logic_vector(3 downto 0);
+		: out std_logic_vector(3 downto 0);
 		CP1,CP2,CP3 : out std_logic;
-		QD : in std_logic;
+		QD : in std_logic
 	);
 end CPU;
 
 architecture arc of CPU is
 signal ST0,ST0_REG,SST0,STOP_REG,STOP_REG_REG: std_logic;
 begin
-	CP1<='1'
-	CP2<='1'
+	CP1<='1';
+	CP2<='1';
 	with SWCBA select
 	STOP<= '0'							when "000",
 			STOP_REG or STOP_REG_REG 	when others;
@@ -61,11 +60,11 @@ begin
 
 	process (CLR, T3)
 	begin
-		if (CLR == '0') then
+		if (CLR = '0') then
 			ST0_REG <= '0';
 			STOP_REG_REG <= '1';
-		elsif (SST0 == '1') then
-			ST0_REG <= '1'
+		elsif (SST0 = '1') then
+			ST0_REG <= '1';
 		end if;
 	end process;
 	
@@ -79,7 +78,7 @@ begin
 		SBUS <= '0';
 		MBUS <= '0';
 		M <= '0';
-		S <= '0';
+		S <= "0000";
 		SEL3 <= '0';
 		SEL2 <= '0';
 		SEL1 <= '0';
@@ -241,7 +240,7 @@ begin
 								
 								-- 设定PC
 								LIR <= W1;
-								PCINC <= W;
+								PCINC <= W1;
 						end case;
 					when others =>
 						-- 不可能到这吧?
@@ -265,7 +264,7 @@ begin
 				LAR<=W1 and (not ST0);
 				ARINC<=W1 and ST0;
 			when "011" =>
-				SELCTL<="1";
+				SELCTL<='1';
 				SEL0<=W1 or W2;
 				STOP_REG<=W1 or W2;
 				SEL3<=W2;
@@ -281,10 +280,8 @@ begin
 				SEL1<=((not ST0) and W1) or (ST0 and W2);
 				SEL0<=W1;
 			when others=>
-			end case;
 		end case;
 	end process;
-
 end arc;
 
 

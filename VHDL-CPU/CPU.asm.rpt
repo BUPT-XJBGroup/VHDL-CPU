@@ -1,5 +1,5 @@
 Assembler report for CPU
-Thu Mar 28 00:00:05 2019
+Thu Mar 28 20:32:47 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Mar 28 00:00:05 2019 ;
+; Assembler Status      ; Successful - Thu Mar 28 20:32:47 2019 ;
 ; Revision Name         ; CPU                                   ;
 ; Top-level Entity Name ; CPU                                   ;
 ; Family                ; MAX7000S                              ;
@@ -87,7 +87,7 @@ applicable agreement for further details.
 +----------------+---------------------------------------------+
 ; Device         ; EPM7128SLC84-6                              ;
 ; JTAG usercode  ; 0x00000000                                  ;
-; Checksum       ; 0x001A9715                                  ;
+; Checksum       ; 0x001C5D9F                                  ;
 +----------------+---------------------------------------------+
 
 
@@ -97,13 +97,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Mar 28 00:00:04 2019
+    Info: Processing started: Thu Mar 28 20:32:46 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off CPU -c CPU
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 220 megabytes
-    Info: Processing ended: Thu Mar 28 00:00:05 2019
+    Info: Peak virtual memory: 218 megabytes
+    Info: Processing ended: Thu Mar 28 20:32:47 2019
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

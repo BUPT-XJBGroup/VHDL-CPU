@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Thu Mar 28 00:00:00 2019
+Thu Mar 28 20:32:43 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -12,7 +12,8 @@ Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
   4. Analysis & Synthesis Source Files Read
   5. Analysis & Synthesis Resource Usage Summary
   6. Analysis & Synthesis Resource Utilization by Entity
-  7. Analysis & Synthesis Messages
+  7. User-Specified and Inferred Latches
+  8. Analysis & Synthesis Messages
 
 
 
@@ -38,13 +39,13 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Mar 28 00:00:00 2019        ;
+; Analysis & Synthesis Status ; Successful - Thu Mar 28 20:32:43 2019        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; CPU                                          ;
 ; Top-level Entity Name       ; CPU                                          ;
 ; Family                      ; MAX7000S                                     ;
-; Total macrocells            ; 27                                           ;
-; Total pins                  ; 41                                           ;
+; Total macrocells            ; 36                                           ;
+; Total pins                  ; 45                                           ;
 +-----------------------------+----------------------------------------------+
 
 
@@ -118,13 +119,14 @@ applicable agreement for further details.
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 27                   ;
+; Logic cells          ; 36                   ;
 ; Total registers      ; 0                    ;
-; I/O pins             ; 41                   ;
-; Maximum fan-out node ; ~GND~0               ;
-; Maximum fan-out      ; 1                    ;
-; Total fan-out        ; 27                   ;
-; Average fan-out      ; 0.40                 ;
+; I/O pins             ; 45                   ;
+; Parallel expanders   ; 2                    ;
+; Maximum fan-out node ; SWCBA[2]             ;
+; Maximum fan-out      ; 30                   ;
+; Total fan-out        ; 270                  ;
+; Average fan-out      ; 3.33                 ;
 +----------------------+----------------------+
 
 
@@ -133,8 +135,20 @@ applicable agreement for further details.
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |CPU                       ; 27         ; 41   ; |CPU                ; work         ;
+; |CPU                       ; 36         ; 45   ; |CPU                ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; ST0_REG                                            ; GND                 ; yes                    ;
+; DRW$latch                                          ; Mux44               ; yes                    ;
+; Number of user-specified and inferred latches = 2  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +-------------------------------+
@@ -143,85 +157,34 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Mar 27 23:59:57 2019
+    Info: Processing started: Thu Mar 28 20:32:41 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Info: Found 2 design units, including 1 entities, in source file CPU.vhd
     Info: Found design unit 1: CPU-arc
     Info: Found entity 1: CPU
 Info: Elaborating entity "CPU" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "DRW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "PCINC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LPC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LAR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "PCADD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "ARINC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SELCTL" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "MEMW" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "STOP" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LIR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LDZ" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LDC" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "CIN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "M" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "ABUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SBUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "MBUS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "SHORT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(14): used implicit default value for signal "LONG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(15): used implicit default value for signal "S" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(17): used implicit default value for signal "SEL01" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at CPU.vhd(19): used implicit default value for signal "SEL23" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at CPU.vhd(66): signal "SST0" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at CPU.vhd(61): inferring latch(es) for signal or variable "ST0_REG", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CPU.vhd(61): inferring latch(es) for signal or variable "STOP_REG_REG", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at CPU.vhd(71): inferring latch(es) for signal or variable "DRW", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "DRW" at CPU.vhd(71)
+Info (10041): Inferred latch for "STOP_REG_REG" at CPU.vhd(61)
+Info (10041): Inferred latch for "ST0_REG" at CPU.vhd(61)
+Warning: LATCH primitive "STOP_REG_REG" is permanently disabled
 Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "DRW" is stuck at GND
-    Warning (13410): Pin "PCINC" is stuck at GND
-    Warning (13410): Pin "LPC" is stuck at GND
-    Warning (13410): Pin "LAR" is stuck at GND
-    Warning (13410): Pin "PCADD" is stuck at GND
-    Warning (13410): Pin "ARINC" is stuck at GND
-    Warning (13410): Pin "SELCTL" is stuck at GND
-    Warning (13410): Pin "MEMW" is stuck at GND
-    Warning (13410): Pin "STOP" is stuck at GND
-    Warning (13410): Pin "LIR" is stuck at GND
-    Warning (13410): Pin "LDZ" is stuck at GND
-    Warning (13410): Pin "LDC" is stuck at GND
     Warning (13410): Pin "CIN" is stuck at GND
-    Warning (13410): Pin "M" is stuck at GND
-    Warning (13410): Pin "ABUS" is stuck at GND
-    Warning (13410): Pin "SBUS" is stuck at GND
-    Warning (13410): Pin "MBUS" is stuck at GND
-    Warning (13410): Pin "SHORT" is stuck at GND
-    Warning (13410): Pin "LONG" is stuck at GND
-    Warning (13410): Pin "S[0]" is stuck at GND
-    Warning (13410): Pin "S[1]" is stuck at GND
-    Warning (13410): Pin "S[2]" is stuck at GND
-    Warning (13410): Pin "S[3]" is stuck at GND
-    Warning (13410): Pin "SEL01[0]" is stuck at GND
-    Warning (13410): Pin "SEL01[1]" is stuck at GND
-    Warning (13410): Pin "SEL23[0]" is stuck at GND
-    Warning (13410): Pin "SEL23[1]" is stuck at GND
-Warning: Design contains 14 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLR"
+    Warning (13410): Pin "CP1" is stuck at VCC
+    Warning (13410): Pin "CP2" is stuck at VCC
+Warning: Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "T3"
-    Warning (15610): No output dependent on input pin "C"
-    Warning (15610): No output dependent on input pin "Z"
-    Warning (15610): No output dependent on input pin "SW[0]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-    Warning (15610): No output dependent on input pin "SW[2]"
-    Warning (15610): No output dependent on input pin "IR[0]"
-    Warning (15610): No output dependent on input pin "IR[1]"
-    Warning (15610): No output dependent on input pin "IR[2]"
-    Warning (15610): No output dependent on input pin "IR[3]"
-    Warning (15610): No output dependent on input pin "W[0]"
-    Warning (15610): No output dependent on input pin "W[1]"
-    Warning (15610): No output dependent on input pin "W[2]"
-Info: Implemented 68 device resources after synthesis - the final resource count might be different
-    Info: Implemented 14 input pins
-    Info: Implemented 27 output pins
-    Info: Implemented 27 macrocells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 65 warnings
-    Info: Peak virtual memory: 260 megabytes
-    Info: Processing ended: Thu Mar 28 00:00:00 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Implemented 81 device resources after synthesis - the final resource count might be different
+    Info: Implemented 15 input pins
+    Info: Implemented 30 output pins
+    Info: Implemented 36 macrocells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 257 megabytes
+    Info: Processing ended: Thu Mar 28 20:32:43 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
