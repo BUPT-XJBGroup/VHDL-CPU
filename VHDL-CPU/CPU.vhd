@@ -60,11 +60,13 @@ begin
 
 	process (CLR, T3)
 	begin
-		if (CLR = '0') then
+		if (CLR'event and CLR = '0') then
 			ST0_REG <= '0';
 			STOP_REG_REG <= '1';
-		elsif (SST0 = '1') then
-			ST0_REG <= '1';
+		else if (T3'event and T3 = '0') then
+			if (SST0 = '1') then
+				ST0_REG <= '1';
+			end if;
 		end if;
 	end process;
 	
@@ -95,7 +97,7 @@ begin
 		SST0 <= '0';
 		PCADD <= '0';
 		case SWCBA is
-			when "000"=>  --执行程序
+			when "000" =>  --执行程序
 				case ST0 is
 					when '0' =>
 						-- load pc
@@ -246,6 +248,7 @@ begin
 						-- 不可能到这吧?
 				end case;
 			when "001" =>
+				
 				SELCTL<=W1;
 				SHORT<=W1;
 				SBUS<=W1;
