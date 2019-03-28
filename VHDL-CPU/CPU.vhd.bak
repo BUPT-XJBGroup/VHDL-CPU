@@ -4,7 +4,47 @@ use IEEE.std_logic_unsigned.all;
 
 entity CPU is
 	port (
-		CLR,T3,C,Z : in std_logic;
+		SWA,
+		SWB,
+		SWC,
+		CLR,
+		C,
+		Z,
+		T3,
+		W1,
+		W2,
+		W3
+		: in std_logic;
+		IRH
+		: in std_logic_vector(3 downto 0);
+
+		SELCTL,
+		ABUS,
+		M,
+		S,
+		SEL1,
+		SEL0,
+		SEL2
+		SEL3
+		DRW,
+		SBUS,
+		LIR,
+		MBUS,
+		MEMW,
+		LAR,
+		ARINC,
+		LPC,
+		PCINC,
+		PCADD,
+		CIN,
+		LONG,
+		SHORT,
+		CP1,CP2,CP3,
+		QD,
+		STOP,
+		LDC,
+		LDZ,
+		
 		SW : in std_logic_vector(2 downto 0);
 		-- CBA => 210
 		IR : in std_logic_vector(3 downto 0);
@@ -22,6 +62,6 @@ entity CPU is
 end CPU;
 
 architecture arc of CPU is
-begin	
+begin
 
 end arc;
