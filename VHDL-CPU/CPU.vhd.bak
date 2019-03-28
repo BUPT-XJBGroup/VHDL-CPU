@@ -48,22 +48,23 @@ entity CPU is
 end CPU;
 
 architecture arc of CPU is
-signal ST0,ST0_REG,SST0,STOP_REG,STOP_REG_REG: std_logic;
+signal ST0,ST0_REG,SST0,STOP_REG1,STOP_REG2: std_logic;
 begin
-	CP1<='1';
-	CP2<='1';
+	CP1 <= '1';
+	CP2 <= '1';
+	CP3 <= QD;
+	
 	with SWCBA select
-	STOP<= '0'							when "000",
-			STOP_REG or STOP_REG_REG 	when others;
-	CP3<=QD;
-	ST0<=ST0_REG;
+		STOP <= '0'						when "000",
+				STOP_REG1 or STOP_REG2 	when others;
+	ST0 <= ST0_REG;
 
 	process (CLR, T3)
 	begin
 		-- 任何时候按下CLR, 都会返回
 		if (CLR = '0') then
 			ST0_REG <= '0';
-			STOP_REG_REG <= '1';
+			STOP_REG1 <= '1';
 		-- 如果到节拍电位T3下降沿，ST0_REG |= SST0
 		elsif (T3'event and T3 = '0') then
 			if (SST0 = '1') then
@@ -79,7 +80,7 @@ begin
 		SHORT <= '0';
 		LONG <= '0';
 		-- 设置STOP
-		STOP_REG <= '1';
+		STOP_REG2 <= '1';
 		-- 设置ST0标志
 		SST0 <= '0';
 		
@@ -118,7 +119,7 @@ begin
 		
 		-- (~R)/W
 		MEMW <= '0';
-		DRW <= '0'
+		DRW <= '0';
 		
 		-- 程序计数器自增标志
 		PCINC <= '0';		
@@ -137,7 +138,7 @@ begin
 						SST0 <= W1;
 						
 						SHORT <= W1;
-						-- STOP_REG <= '0';
+						-- STOP_REG2 <= '0';
 					when '1' =>
 						case IRH is
 							when "0000" =>  -- NOP
@@ -303,7 +304,7 @@ begin
 								
 							when "1110" =>  -- STP
 							
-								STOP_REG <= W1;
+								STOP_REG2 <= W1;
 							
 							when others =>  -- 公操作
 								
@@ -321,7 +322,7 @@ begin
 				-- SBUS = (ST0=0 or ST0=1) and W1 
 				SBUS <= W1;
 				-- STOP = (ST0=0 or ST0=1) and W1
-				STOP_REG <= W1;
+				STOP_REG2 <= W1;
 				-- SHORT = (ST0=0 or ST0=1) and W1
 				SHORT <= W1;
 				-- SELCTL = (ST0=0 or ST0=1) and W1
@@ -345,7 +346,7 @@ begin
 				-- SELCTL = (ST0=0 or ST0=1) and W1
 				SELCTL <= W1;
 				-- STOP = (ST0=0 or ST0=1) and W1
-				STOP_REG<=W1;
+				STOP_REG2<=W1;
 				
 				-- SBUS = (ST0=0) and W1
 				SBUS<=W1 and (not ST0);
@@ -364,7 +365,7 @@ begin
 				-- SELCTL = W1 or W2
 				SELCTL <= '1';
 				-- STOP = W1 or W2
-				STOP_REG <= W1 or W2;
+				STOP_REG2 <= W1 or W2;
 				
 				-- SEL0 = W1 or W2
 				SEL0<=W1 or W2;
@@ -382,7 +383,7 @@ begin
 				-- SBUS = (ST0=0 or ST0=1) and (W1 or W2)
 				SBUS <= W1 or W2;
 				-- STOP = (ST0=0 or ST0=1) and (W1 or W2)
-				STOP_REG <= W1 or W2;
+				STOP_REG2 <= W1 or W2;
 				-- DRW = (ST0=0 or ST0=1) and (W1 or W2)
 				DRW <= W1 or W2;
 				
