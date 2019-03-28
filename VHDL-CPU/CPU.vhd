@@ -65,7 +65,7 @@ begin
 			ST0_REG <= '0';
 			STOP_REG_REG <= '1';
 		-- 如果到节拍电位T3下降沿，ST0_REG |= SST0
-		else if (T3'event and T3 = '0') then
+		elsif (T3'event and T3 = '0') then
 			if (SST0 = '1') then
 				ST0_REG <= '1';
 			end if;
@@ -118,7 +118,7 @@ begin
 		
 		-- (~R)/W
 		MEMW <= '0';
-		DRW <= '0'
+		DRW <= '0';
 		
 		-- 程序计数器自增标志
 		PCINC <= '0';		
