@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Thu Mar 28 22:17:48 2019
+Tue Apr 09 21:17:18 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -38,70 +38,70 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Mar 28 22:17:48 2019        ;
+; Analysis & Synthesis Status ; Successful - Tue Apr 09 21:17:18 2019        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; CPU                                          ;
 ; Top-level Entity Name       ; CPU                                          ;
 ; Family                      ; MAX7000S                                     ;
-; Total macrocells            ; 36                                           ;
+; Total macrocells            ; 37                                           ;
 ; Total pins                  ; 45                                           ;
 +-----------------------------+----------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                 ;
-+--------------------------------------------------------------+----------------+---------------+
-; Option                                                       ; Setting        ; Default Value ;
-+--------------------------------------------------------------+----------------+---------------+
-; Device                                                       ; EPM7128SLC84-6 ;               ;
-; Top-level entity name                                        ; CPU            ; CPU           ;
-; Family name                                                  ; MAX7000S       ; Stratix II    ;
-; Use Generated Physical Constraints File                      ; Off            ;               ;
-; Use smart compilation                                        ; Off            ; Off           ;
-; Create Debugging Nodes for IP Cores                          ; Off            ; Off           ;
-; Preserve fewer node names                                    ; On             ; On            ;
-; Disable OpenCore Plus hardware evaluation                    ; Off            ; Off           ;
-; Verilog Version                                              ; Verilog_2001   ; Verilog_2001  ;
-; VHDL Version                                                 ; VHDL93         ; VHDL93        ;
-; State Machine Processing                                     ; Auto           ; Auto          ;
-; Safe State Machine                                           ; Off            ; Off           ;
-; Extract Verilog State Machines                               ; On             ; On            ;
-; Extract VHDL State Machines                                  ; On             ; On            ;
-; Ignore Verilog initial constructs                            ; Off            ; Off           ;
-; Iteration limit for constant Verilog loops                   ; 5000           ; 5000          ;
-; Iteration limit for non-constant Verilog loops               ; 250            ; 250           ;
-; Add Pass-Through Logic to Inferred RAMs                      ; On             ; On            ;
-; Parallel Synthesis                                           ; Off            ; Off           ;
-; NOT Gate Push-Back                                           ; On             ; On            ;
-; Power-Up Don't Care                                          ; On             ; On            ;
-; Remove Duplicate Registers                                   ; On             ; On            ;
-; Ignore CARRY Buffers                                         ; Off            ; Off           ;
-; Ignore CASCADE Buffers                                       ; Off            ; Off           ;
-; Ignore GLOBAL Buffers                                        ; Off            ; Off           ;
-; Ignore ROW GLOBAL Buffers                                    ; Off            ; Off           ;
-; Ignore LCELL Buffers                                         ; Auto           ; Auto          ;
-; Ignore SOFT Buffers                                          ; Off            ; Off           ;
-; Limit AHDL Integers to 32 Bits                               ; Off            ; Off           ;
-; Optimization Technique                                       ; Speed          ; Speed         ;
-; Allow XOR Gate Usage                                         ; On             ; On            ;
-; Auto Logic Cell Insertion                                    ; On             ; On            ;
-; Parallel Expander Chain Length                               ; 4              ; 4             ;
-; Auto Parallel Expanders                                      ; On             ; On            ;
-; Auto Open-Drain Pins                                         ; On             ; On            ;
-; Auto Resource Sharing                                        ; Off            ; Off           ;
-; Maximum Fan-in Per Macrocell                                 ; 100            ; 100           ;
-; Use LogicLock Constraints during Resource Balancing          ; On             ; On            ;
-; Ignore translate_off and synthesis_off directives            ; Off            ; Off           ;
-; Show Parameter Settings Tables in Synthesis Report           ; On             ; On            ;
-; HDL message level                                            ; Level2         ; Level2        ;
-; Suppress Register Optimization Related Messages              ; Off            ; Off           ;
-; Number of Removed Registers Reported in Synthesis Report     ; 100            ; 100           ;
-; Number of Inverted Registers Reported in Synthesis Report    ; 100            ; 100           ;
-; Block Design Naming                                          ; Auto           ; Auto          ;
-; Synthesis Effort                                             ; Auto           ; Auto          ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal ; On             ; On            ;
-; Analysis & Synthesis Message Level                           ; Medium         ; Medium        ;
-+--------------------------------------------------------------+----------------+---------------+
++------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                  ;
++--------------------------------------------------------------+-----------------+---------------+
+; Option                                                       ; Setting         ; Default Value ;
++--------------------------------------------------------------+-----------------+---------------+
+; Device                                                       ; EPM7128SLC84-15 ;               ;
+; Top-level entity name                                        ; CPU             ; CPU           ;
+; Family name                                                  ; MAX7000S        ; Stratix II    ;
+; Use Generated Physical Constraints File                      ; Off             ;               ;
+; Use smart compilation                                        ; Off             ; Off           ;
+; Create Debugging Nodes for IP Cores                          ; Off             ; Off           ;
+; Preserve fewer node names                                    ; On              ; On            ;
+; Disable OpenCore Plus hardware evaluation                    ; Off             ; Off           ;
+; Verilog Version                                              ; Verilog_2001    ; Verilog_2001  ;
+; VHDL Version                                                 ; VHDL93          ; VHDL93        ;
+; State Machine Processing                                     ; Auto            ; Auto          ;
+; Safe State Machine                                           ; Off             ; Off           ;
+; Extract Verilog State Machines                               ; On              ; On            ;
+; Extract VHDL State Machines                                  ; On              ; On            ;
+; Ignore Verilog initial constructs                            ; Off             ; Off           ;
+; Iteration limit for constant Verilog loops                   ; 5000            ; 5000          ;
+; Iteration limit for non-constant Verilog loops               ; 250             ; 250           ;
+; Add Pass-Through Logic to Inferred RAMs                      ; On              ; On            ;
+; Parallel Synthesis                                           ; Off             ; Off           ;
+; NOT Gate Push-Back                                           ; On              ; On            ;
+; Power-Up Don't Care                                          ; On              ; On            ;
+; Remove Duplicate Registers                                   ; On              ; On            ;
+; Ignore CARRY Buffers                                         ; Off             ; Off           ;
+; Ignore CASCADE Buffers                                       ; Off             ; Off           ;
+; Ignore GLOBAL Buffers                                        ; Off             ; Off           ;
+; Ignore ROW GLOBAL Buffers                                    ; Off             ; Off           ;
+; Ignore LCELL Buffers                                         ; Auto            ; Auto          ;
+; Ignore SOFT Buffers                                          ; Off             ; Off           ;
+; Limit AHDL Integers to 32 Bits                               ; Off             ; Off           ;
+; Optimization Technique                                       ; Speed           ; Speed         ;
+; Allow XOR Gate Usage                                         ; On              ; On            ;
+; Auto Logic Cell Insertion                                    ; On              ; On            ;
+; Parallel Expander Chain Length                               ; 4               ; 4             ;
+; Auto Parallel Expanders                                      ; On              ; On            ;
+; Auto Open-Drain Pins                                         ; On              ; On            ;
+; Auto Resource Sharing                                        ; Off             ; Off           ;
+; Maximum Fan-in Per Macrocell                                 ; 100             ; 100           ;
+; Use LogicLock Constraints during Resource Balancing          ; On              ; On            ;
+; Ignore translate_off and synthesis_off directives            ; Off             ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report           ; On              ; On            ;
+; HDL message level                                            ; Level2          ; Level2        ;
+; Suppress Register Optimization Related Messages              ; Off             ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report     ; 100             ; 100           ;
+; Number of Inverted Registers Reported in Synthesis Report    ; 100             ; 100           ;
+; Block Design Naming                                          ; Auto            ; Auto          ;
+; Synthesis Effort                                             ; Auto            ; Auto          ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal ; On              ; On            ;
+; Analysis & Synthesis Message Level                           ; Medium          ; Medium        ;
++--------------------------------------------------------------+-----------------+---------------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -118,15 +118,15 @@ applicable agreement for further details.
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 36                   ;
+; Logic cells          ; 37                   ;
 ; Total registers      ; 1                    ;
 ; I/O pins             ; 45                   ;
-; Shareable expanders  ; 7                    ;
-; Parallel expanders   ; 5                    ;
-; Maximum fan-out node ; SWCBA[1]             ;
-; Maximum fan-out      ; 32                   ;
-; Total fan-out        ; 317                  ;
-; Average fan-out      ; 3.60                 ;
+; Shareable expanders  ; 9                    ;
+; Parallel expanders   ; 6                    ;
+; Maximum fan-out node ; W1                   ;
+; Maximum fan-out      ; 34                   ;
+; Total fan-out        ; 340                  ;
+; Average fan-out      ; 3.74                 ;
 +----------------------+----------------------+
 
 
@@ -135,7 +135,7 @@ applicable agreement for further details.
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |CPU                       ; 36         ; 45   ; |CPU                ; work         ;
+; |CPU                       ; 37         ; 45   ; |CPU                ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
 
 
@@ -145,14 +145,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Mar 28 22:17:44 2019
+    Info: Processing started: Tue Apr 09 21:17:15 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Info: Found 2 design units, including 1 entities, in source file CPU.vhd
     Info: Found design unit 1: CPU-arc
     Info: Found entity 1: CPU
 Info: Elaborating entity "CPU" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at CPU.vhd(62): inferring latch(es) for signal or variable "STOP_REG1", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "STOP_REG1" at CPU.vhd(62)
+Warning (10631): VHDL Process Statement warning at CPU.vhd(68): inferring latch(es) for signal or variable "STOP_REG1", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "STOP_REG1" at CPU.vhd(68)
 Warning: LATCH primitive "STOP_REG1" is permanently disabled
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "LONG" is stuck at GND
@@ -163,15 +163,15 @@ Info: Promoted pin-driven signal(s) to global signal
     Info: Promoted clock signal driven by pin "T3" to global clock signal
 Warning: Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "W3"
-Info: Implemented 88 device resources after synthesis - the final resource count might be different
+Info: Implemented 91 device resources after synthesis - the final resource count might be different
     Info: Implemented 15 input pins
     Info: Implemented 30 output pins
-    Info: Implemented 36 macrocells
-    Info: Implemented 7 shareable expanders
+    Info: Implemented 37 macrocells
+    Info: Implemented 9 shareable expanders
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 8 warnings
     Info: Peak virtual memory: 257 megabytes
-    Info: Processing ended: Thu Mar 28 22:17:48 2019
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Tue Apr 09 21:17:18 2019
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -37,15 +37,13 @@
 
 
 set_global_assignment -name FAMILY MAX7000S
-set_global_assignment -name DEVICE "EPM7128SLC84-6"
+set_global_assignment -name DEVICE "EPM7128SLC84-15"
 set_global_assignment -name TOP_LEVEL_ENTITY CPU
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "9.0 SP2"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:58:54  MARCH 28, 2019"
 set_global_assignment -name LAST_QUARTUS_VERSION "9.0 SP2"
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 set_global_assignment -name VHDL_FILE CPU.vhd
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name MAX7000_DEVICE_IO_STANDARD TTL
 set_location_assignment PIN_40 -to ABUS
 set_location_assignment PIN_24 -to ARINC
@@ -93,3 +91,5 @@ set_location_assignment PIN_15 -to W2
 set_location_assignment PIN_16 -to W3
 set_location_assignment PIN_84 -to Z
 set_global_assignment -name MISC_FILE "D:/codes/VHDL-CPU/VHDL-CPU/CPU.dpf"
+set_global_assignment -name MISC_FILE "C:/Users/Administrator/Desktop/VHDL-CPU-master/VHDL-CPU-master/VHDL-CPU/CPU.dpf"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON

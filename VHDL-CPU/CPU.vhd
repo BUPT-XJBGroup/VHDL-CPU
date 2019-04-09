@@ -1,12 +1,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
-
+   
 entity CPU is
 	port (
 		CLR,		--复位信号，低电平有效
 		C,			--进位标准
-		Z,			--零标志
+		Z,			--零标志 
 		T3,			--T3时钟
 		W1,			--W1节拍输出
 		W2,			--W2节拍输出
@@ -44,12 +44,18 @@ entity CPU is
 		: out std_logic_vector(3 downto 0);
 		CP1,CP2,CP3 : out std_logic;
 		QD : in std_logic
+		
+		
+		
+		
+	--	;SB : out std_logic
 	);
 end CPU;
 
 architecture arc of CPU is
 signal ST0,ST0_REG,SST0,STOP_REG1,STOP_REG2: std_logic;
 begin
+--	SB <= ST0;
 	CP1 <= '1';
 	CP2 <= '1';
 	CP3 <= QD;
@@ -245,7 +251,12 @@ begin
 								
 								-- 设定...
 								M <= W1 or W2;
-								S <= '1' & W1 & '1' & W1;
+								
+								if(W1='1')then
+									S<="1111";
+								else
+									S<="1010";
+								end if;
 								
 								
 								ABUS <= W1 or W2;
@@ -260,18 +271,16 @@ begin
 							when "0111" =>  -- JC
 								
 								-- 设定PC
-								LIR <= (W1 and (not C)) or (W2 or C);
-								PCINC <= (W1 and (not C)) or (W2 or C);
-								
+								LIR <= (W1 and (not C)) or (W2 and C);
+								PCINC <= (W1 and (not C)) or (W2 and C);
 								PCADD <= C and W1;
 								SHORT <= W1 and (not C);
 							
 							when "1000" =>  -- JZ
 								
 								-- 设定PC
-								LIR <= (W1 and (not Z)) or (W2 or Z);
-								PCINC <= (W1 and (not Z)) or (W2 or Z);
-								
+								LIR <= (W1 and (not Z)) or (W2 and Z);
+								PCINC <= (W1 and (not Z)) or (W2 and Z);
 								PCADD <= Z and W1;
 								SHORT <= W1 and (not Z);
 								
@@ -318,7 +327,7 @@ begin
 						-- 不可能到这吧?
 				end case;
 			when "001" =>
-				
+			--	SEL0<=ST0;
 				-- SBUS = (ST0=0 or ST0=1) and W1 
 				SBUS <= W1;
 				-- STOP = (ST0=0 or ST0=1) and W1
@@ -340,7 +349,6 @@ begin
 				SST0 <= W1;
 				
 			when "010" =>
-				
 				-- SHORT = (ST0=0 or ST0=1) and W1
 				SHORT<=W1;
 				-- SELCTL = (ST0=0 or ST0=1) and W1
@@ -352,12 +360,12 @@ begin
 				SBUS<=W1 and (not ST0);
 				-- LAR = (ST0=0) and W1
 				LAR<=W1 and (not ST0);
-				
 				-- MBUS = (ST0=1) and W1
 				MBUS<=W1 and ST0;
 				-- ARINC = (ST0=1) and W1
 				ARINC<=W1 and ST0;
-				
+
+
 				-- TODO: 存疑
 				SST0<=W1;
 			when "011" =>
