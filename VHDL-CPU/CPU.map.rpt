@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Tue Apr 09 21:17:18 2019
+Wed Apr 10 00:45:25 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -38,12 +38,12 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Tue Apr 09 21:17:18 2019        ;
+; Analysis & Synthesis Status ; Successful - Wed Apr 10 00:45:25 2019        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; CPU                                          ;
 ; Top-level Entity Name       ; CPU                                          ;
 ; Family                      ; MAX7000S                                     ;
-; Total macrocells            ; 37                                           ;
+; Total macrocells            ; 40                                           ;
 ; Total pins                  ; 45                                           ;
 +-----------------------------+----------------------------------------------+
 
@@ -118,15 +118,15 @@ applicable agreement for further details.
 +----------------------+----------------------+
 ; Resource             ; Usage                ;
 +----------------------+----------------------+
-; Logic cells          ; 37                   ;
+; Logic cells          ; 40                   ;
 ; Total registers      ; 1                    ;
 ; I/O pins             ; 45                   ;
-; Shareable expanders  ; 9                    ;
-; Parallel expanders   ; 6                    ;
-; Maximum fan-out node ; W1                   ;
-; Maximum fan-out      ; 34                   ;
-; Total fan-out        ; 340                  ;
-; Average fan-out      ; 3.74                 ;
+; Shareable expanders  ; 18                   ;
+; Parallel expanders   ; 9                    ;
+; Maximum fan-out node ; SWCBA[1]             ;
+; Maximum fan-out      ; 51                   ;
+; Total fan-out        ; 513                  ;
+; Average fan-out      ; 4.98                 ;
 +----------------------+----------------------+
 
 
@@ -135,7 +135,7 @@ applicable agreement for further details.
 +----------------------------+------------+------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Macrocells ; Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+------------+------+---------------------+--------------+
-; |CPU                       ; 37         ; 45   ; |CPU                ; work         ;
+; |CPU                       ; 40         ; 45   ; |CPU                ; work         ;
 +----------------------------+------------+------+---------------------+--------------+
 
 
@@ -145,7 +145,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Tue Apr 09 21:17:15 2019
+    Info: Processing started: Wed Apr 10 00:45:23 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Info: Found 2 design units, including 1 entities, in source file CPU.vhd
     Info: Found design unit 1: CPU-arc
@@ -155,23 +155,20 @@ Warning (10631): VHDL Process Statement warning at CPU.vhd(68): inferring latch(
 Info (10041): Inferred latch for "STOP_REG1" at CPU.vhd(68)
 Warning: LATCH primitive "STOP_REG1" is permanently disabled
 Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LONG" is stuck at GND
     Warning (13410): Pin "CP1" is stuck at VCC
     Warning (13410): Pin "CP2" is stuck at VCC
 Info: Promoted pin-driven signal(s) to global signal
     Info: Promoted clear signal driven by pin "CLR" to global clear signal
     Info: Promoted clock signal driven by pin "T3" to global clock signal
-Warning: Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "W3"
-Info: Implemented 91 device resources after synthesis - the final resource count might be different
+Info: Implemented 103 device resources after synthesis - the final resource count might be different
     Info: Implemented 15 input pins
     Info: Implemented 30 output pins
-    Info: Implemented 37 macrocells
-    Info: Implemented 9 shareable expanders
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info: Implemented 40 macrocells
+    Info: Implemented 18 shareable expanders
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 257 megabytes
-    Info: Processing ended: Tue Apr 09 21:17:18 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Wed Apr 10 00:45:25 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 

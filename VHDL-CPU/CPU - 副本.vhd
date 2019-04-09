@@ -448,7 +448,7 @@ begin
 											S <= "1111";
 										elsif (W2 = '1') then
 											S <= "1010";
-										elsif (W3 = '1')
+										elsif (W3 = '1') then
 											S <= "1111";
 										end if;
 										
