@@ -212,23 +212,76 @@ begin
 								ABUS <= W1;
 								DRW <= W1;
 								LDZ <= W1;
-							when "0100" =>  -- INC ()
+							when "0100" =>
 								
-								-- 设定PC
-								LIR <= W1;
-								PCINC <= W1;
-								
-								-- 短周期
-								SHORT <= W1;
-								
-								-- 选择算术运算, 与运算
-								-- M已经被初始化为0
-								S <= "0000";
-								
-								ABUS <= W1;
-								DRW <= W1;
-								LDZ <= W1;
-								LDC <= W1;
+								--case SEL1 & SEL0 is
+								--	when "00" =>  -- INC ()
+										-- 设定PC
+										LIR <= W1;
+										PCINC <= W1;
+										
+										-- 短周期
+										SHORT <= W1;
+										
+										-- 选择算术运算, 与运算
+										-- M已经被初始化为0
+										S <= "0000";
+										
+										ABUS <= W1;
+										DRW <= W1;
+										LDZ <= W1;
+										LDC <= W1;
+								--	when "01" =>  -- DEC ()
+								--		-- 设定PC
+								--		LIR <= W1;
+								--		PCINC <= W1;
+								--		
+								--		-- 短周期
+								--		SHORT <= W1;
+								--		
+								--		-- 选择算术运算, 与运算
+								--		-- M已经被初始化为0
+								--		CIN <= W1;
+								--		S <= "1111";
+								--		
+								--		ABUS <= W1;
+								--		DRW <= W1;
+								--		LDZ <= W1;
+								--		LDC <= W1;
+								--	when "10" => -- NOT
+								--		-- 设定PC
+								--		LIR <= W1;
+								--		PCINC <= W1;
+								--		
+								--		-- 短周期
+								--		SHORT <= W1;
+								--		
+								--		-- 选择逻辑运算, 非运算
+								--		M <= W1;
+								--		S <= "0000";
+								--		
+								--		ABUS <= W1;
+								--		DRW <= W1;
+								--		LDZ <= W1;
+								--		LDC <= W1;
+								--	when "10" => -- CLR
+								--		-- 设定PC
+								--		LIR <= W1;
+								--		PCINC <= W1;
+								--		
+								--		-- 短周期
+								--		SHORT <= W1;
+								--		
+								--		-- 选择逻辑运算, A <= 0000
+								--		M <= W1;
+								--		S <= "0011";
+								--		
+								--		ABUS <= W1;
+								--		DRW <= W1;
+								--		LDZ <= W1;
+								--		LDC <= W1;
+								--	when others =>
+								--end case;
 								
 							when "0101" =>  -- LD
 								
@@ -310,11 +363,96 @@ begin
 								M <= W1;
 								S <= "1010";
 								ABUS <= W1;
+
+							when "1011" =>  -- SSP  -- ori XOR ()
+								M <= W1 or W2;
+								if (W1 = '1') then
+									S <= "1000";
+								else
+									-- or S <= "1111"
+									S <= "1010";
+								end if;
 								
+								ABUS <= W1;
+								LAR <= W1;
+								
+								-- 
+								MBUS <= W2;
+								MEMW <= W2;
+								
+								-- 设定PC
+								LIR <= W2;
+								PCINC <= W2;
+							--	-- 设定PC
+							--	LIR <= W1;
+							--	PCINC <= W1;
+							--	
+							--	-- 短周期
+							--	SHORT <= W1;
+							--	
+							--	-- 选择逻辑运算, xor运算
+							--	M <= W1;
+							--	S <= "0110";
+							--	
+							--	ABUS <= W1;
+							--	DRW <= W1;
+							--	LDZ <= W1;
+								
+								
+							when "1100" =>  -- PUSHS -- ori OR ()
+								M <= W1 or W2;
+								CIN <= W3;
+								if (W1 = '1') then
+									S <= "1111";
+								elsif (W2 = '1') then
+									S <= "1010";
+								elsif (W3 = '1') then
+									S <= "1111";
+								end if;
+								
+								ABUS <= W1 or W2 or W3;
+								LAR <= W1;
+								
+								MBUS <= W2;
+								MEMW <= W2;
+								LONG <= W2;
+								
+								DRW <= W3;
+								LIR <= W3;
+								PCINC <= W3;
+							--	-- 设定PC
+							--	LIR <= W1;
+							--	PCINC <= W1;
+							--	
+							--	-- 短周期
+							--	SHORT <= W1;
+							--	
+							--	-- 选择逻辑运算, or运算
+							--	M <= W1;
+							--	S <= "1110";
+							--	
+							--	ABUS <= W1;
+							--	DRW <= W1;
+							--	LDZ <= W1;
+							when "1101" =>  -- MOV B->A
+								-- 设定PC
+								LIR <= W1;
+								PCINC <= W1;
+								
+								-- 短周期
+								SHORT <= W1;
+								
+								-- 选择逻辑运算, MOV 运算
+								M <= W1;
+								S <= "1010";
+								
+								ABUS <= W1;
+								DRW <= W1;
+								LDZ <= W1;
+							
 							when "1110" =>  -- STP
 							
-								STOP_REG2 <= W1;
-							
+<<<<<<< HEAD
 							when "1111" =>  -- stack
 								
 								case SEL3 & SEL2 is
@@ -326,6 +464,106 @@ begin
 								end case;
 							
 							
+=======
+								--if (SEL3 = '1' and SEL2 = '1') then
+								--	if (SEL1 = '1' and SEL0 = '1') then -- SSP
+								--		-- 选择逻辑运算, A <- 0000
+								--		M <= W1 or W2;
+								--		if (W1 = '1') then
+								--			S <= "1000";
+								--		else
+								--			-- or S <= "1111"
+								--			S <= "1010";
+								--		end if;
+								--		
+								--		ABUS <= W1;
+								--		LAR <= W1;
+								--		
+								--		-- 
+								--		MBUS <= W2;
+								--		MEMW <= W2;
+								--		
+								--		-- 设定PC
+								--		LIR <= W2;
+								--		PCINC <= W2;
+								--		
+								--	else -- PUSHS
+								--		-- assuming SP is R3 (the forth register)
+								--		-- LAR <- SP
+								--		M <= W1 or W2;
+								--		CIN <= W3;
+								--		if (W1 = '1') then
+								--			S <= "1111";
+								--		elsif (W2 = '1') then
+								--			S <= "1010";
+								--		elsif (W3 = '1') then
+								--			S <= "1111";
+								--		end if;
+								--		
+								--		ABUS <= W1 or W2 or W3;
+								--		LAR <= W1;
+								--		
+								--		MBUS <= W2;
+								--		MEMW <= W2;
+								--		LONG <= W2;
+								--		
+								--		DRW <= W3;
+								--		LIR <= W3;
+								--		PCINC <= W3;
+								--		-- MBUS <- DBUS <- B
+								--		-- SP --
+								--	end if;
+								--else -- POP STACK
+									STOP_REG2 <= W1;
+								--end if;
+								
+								
+							when "1111" =>  -- STACK Function
+								--case SEL3&SEL2 is
+								--	when "00" =>
+								--	when "01" =>
+								--	when "10" =>
+								--	when "11" =>
+										--case SEL1 & SEL0 is
+										--	when "11" => -- LSP
+												-- 选择逻辑运算, A <- 0000
+												M <= W1;
+												S <= "1000";
+												
+												ABUS <= W1;
+												LAR <= W1;
+												
+												-- 
+												MBUS <= W2;
+												DRW <= W2;
+												
+												-- 设定PC
+												LIR <= W2;
+												PCINC <= W2;
+										--	when others => -- POPS
+										--		-- 设定PC
+										--		LIR <= W1;
+										--		PCINC <= W1;
+										--		
+										--		-- 短周期
+										--		SHORT <= W1;
+										--		
+										--		-- 选择算术运算, 与运算
+										--		-- M已经被初始化为0
+										--		S <= "0000";
+										--		
+										--		ABUS <= W1;
+										--		DRW <= W1;
+										--		LDZ <= W1;
+										--		LDC <= W1;
+										--end case;
+								--	when others=>
+								-- end case;				
+												
+												
+												
+												
+>>>>>>> 9ca85d8d778bbec02c694ffdb83805be1d1b0611
 							when others =>  -- 公操作
 								
 								-- 设定PC

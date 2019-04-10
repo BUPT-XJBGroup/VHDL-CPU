@@ -25,7 +25,7 @@ Failed Paths   : 0
 Type           : Worst-case tpd
 Slack          : N/A
 Required Time  : None
-Actual Time    : 26.000 ns
+Actual Time    : 34.000 ns
 From           : Z
 To             : PCINC
 From Clock     : --
