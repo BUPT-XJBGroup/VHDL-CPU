@@ -315,6 +315,17 @@ begin
 							
 								STOP_REG2 <= W1;
 							
+							when "1111" =>  -- stack
+								
+								case SEL3 & SEL2 is
+									when "00" =>
+									when "01" =>
+									when "10" =>
+									when "11" =>
+									when others =>
+								end case;
+							
+							
 							when others =>  -- 公操作
 								
 								-- 设定PC
