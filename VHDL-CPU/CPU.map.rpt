@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Wed Apr 10 00:45:25 2019
+Tue Apr 16 13:59:47 2019
 Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                               ;
 +-----------------------------+----------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Apr 10 00:45:25 2019        ;
+; Analysis & Synthesis Status ; Successful - Tue Apr 16 13:59:47 2019        ;
 ; Quartus II Version          ; 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition ;
 ; Revision Name               ; CPU                                          ;
 ; Top-level Entity Name       ; CPU                                          ;
@@ -125,8 +125,8 @@ applicable agreement for further details.
 ; Parallel expanders   ; 9                    ;
 ; Maximum fan-out node ; SWCBA[1]             ;
 ; Maximum fan-out      ; 51                   ;
-; Total fan-out        ; 513                  ;
-; Average fan-out      ; 4.98                 ;
+; Total fan-out        ; 523                  ;
+; Average fan-out      ; 5.08                 ;
 +----------------------+----------------------+
 
 
@@ -145,7 +145,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
-    Info: Processing started: Wed Apr 10 00:45:23 2019
+    Info: Processing started: Tue Apr 16 13:59:45 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Info: Found 2 design units, including 1 entities, in source file CPU.vhd
     Info: Found design unit 1: CPU-arc
@@ -166,8 +166,8 @@ Info: Implemented 103 device resources after synthesis - the final resource coun
     Info: Implemented 40 macrocells
     Info: Implemented 18 shareable expanders
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 257 megabytes
-    Info: Processing ended: Wed Apr 10 00:45:25 2019
+    Info: Peak virtual memory: 258 megabytes
+    Info: Processing ended: Tue Apr 16 13:59:47 2019
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
