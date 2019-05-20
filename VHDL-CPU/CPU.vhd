@@ -42,20 +42,14 @@ entity CPU is
 		: out std_logic;
 		S			--S3210
 		: out std_logic_vector(3 downto 0);
-		CP1,CP2,CP3 : out std_logic;
-		QD : in std_logic
-		
-		
-		
-		
-	--	;SB : out std_logic
+		CP1,CP2,CP3 : out std_logic;	--被测信号
+		QD : in std_logic	
 	);
 end CPU;
 
 architecture arc of CPU is
 signal ST0,ST0_REG,SST0,STOP_REG1,STOP_REG2: std_logic;
 begin
---	SB <= ST0;
 	CP1 <= '1';
 	CP2 <= '1';
 	CP3 <= QD;
@@ -379,7 +373,6 @@ begin
 								LIR <= W1;
 								PCINC <= W1;
 								
-								-- TODO: SHORT呢?
 						end case;
 					when others =>
 						-- 不可能到这吧?
@@ -403,7 +396,6 @@ begin
 				-- MEMW = (ST0=1) and W1
 				MEMW <= W1 and ST0;
 				
-				-- TODO: 存疑
 				SST0 <= W1;
 				
 			when "010" =>
@@ -423,8 +415,6 @@ begin
 				-- ARINC = (ST0=1) and W1
 				ARINC<=W1 and ST0;
 
-
-				-- TODO: 存疑
 				SST0<=W1;
 			when "011" =>
 				
@@ -461,8 +451,7 @@ begin
 				SEL2 <= W2;
 				-- SEL3 = (ST0=1) and (W1 or W2) 
 				SEL3 <= ST0 and (W1 or W2);
-				
-				-- TODO: 存疑
+
 				SST0 <= W2;
 				
 			when others=>
