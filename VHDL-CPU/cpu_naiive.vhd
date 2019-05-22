@@ -141,151 +141,155 @@ begin
 						SHORT <= W1;
 						-- STOP_REG2 <= '0';
                     when '1' =>
-                        LIR<=W1;
-                        PCINC<=W1;
-						case IRH is 
-							when "0001" =>  --ADD 														
-								-- ABUS = W2
-								ABUS <= W2;
-								CIN <= W2;
+                    
+						if(W1='1')then
+							LIR<=W1;
+							PCINC<=W1;
+						else                        
+							case IRH is 
+								when "0001" =>  --ADD 														
+									-- ABUS = W2
+									ABUS <= W2;
+									CIN <= W2;
+									
+									-- 选择加法
+									-- 选择算术运算, M已经被初始化为0
+									S <= "1001";
+									
+									-- 加法操作
+									DRW <= W2;
+									LDZ <= W2;
+									LDC <= W2;
 								
-								-- 选择加法
-								-- 选择算术运算, M已经被初始化为0
-								S <= "1001";
-								
-								-- 加法操作
-								DRW <= W2;
-								LDZ <= W2;
-								LDC <= W2;
-							
-							when "0010" =>  -- SUB													
-								-- 选择算术运算, 选择减法
-								-- M已经被初始化为0
-								S <= "0110";
-								-- TODO: CIN呢?
-								
-								-- 减法操作
-								ABUS <= W2;
-								DRW <= W2;
-								LDZ <= W2;
-								LDC <= W2;
-							when "0011" =>  -- AND								
-								-- 选择逻辑运算, 与运算
-								M <= W2;
-								S <= "1011";
-								
-								ABUS <= W2;
-								DRW <= W2;
-								LDZ <= W2;
-							when "0100" => -- INC								
-								-- 选择算术运算, 与运算
-								-- M已经被初始化为0
-								S <= "0000";
-								ABUS <= W2;
-								DRW <= W2;
-								LDZ <= W2;
-								LDC <= W2;
-								
-							when "0101" =>  -- LD
-                                -- 选择算术运算，传送B（保留原值）
-								M <= W2;
-								S <= "1010";
-								
-                                ABUS <= W2;
-                                LONG<=W2;
-								LAR <= W2;
-								
-								MBUS <= W3;
-								DRW <= W3;
-							when "0110" =>  -- ST
-								
-								-- 设定...
-								M <= W2 or W3;
-								
-								if(W1='1')then
-									S<="1111";
-								else
-									S<="1010";
-								end if;
-								
-								ABUS <= W2 or W3;
-								LAR <= W2;
-								
-								MEMW <= W3;							
-							when "0111" =>  -- JC
-								PCADD <= C and W2;
-							
-							when "1000" =>  -- JZ
-								PCADD <= Z and W2;
-								
-							when "1001" =>  -- JMP
-								-- 设定算术运算
-								M <= W2;
-								S <= "1111";
-								
-								ABUS <= W2;
-								LPC <= W2;
-								
-							when "1010" =>  -- OUT
-								-- 设定算术运算
-								M <= W2;
-								S <= "1010";
-								ABUS <= W2;
-
-							when "1011" =>  -- SSP  
-                                SEL3<='1';
-                                LONG<=W2;
-								M <= W2 or W3;
-								if (W2 = '1') then
-									S <= "1000";
-								elsif (W3 = '1') then
+								when "0010" =>  -- SUB													
+									-- 选择算术运算, 选择减法
+									-- M已经被初始化为0
+									S <= "0110";
+									-- TODO: CIN呢?
+									
+									-- 减法操作
+									ABUS <= W2;
+									DRW <= W2;
+									LDZ <= W2;
+									LDC <= W2;
+								when "0011" =>  -- AND								
+									-- 选择逻辑运算, 与运算
+									M <= W2;
+									S <= "1011";
+									
+									ABUS <= W2;
+									DRW <= W2;
+									LDZ <= W2;
+								when "0100" => -- INC								
+									-- 选择算术运算, 与运算
+									-- M已经被初始化为0
+									S <= "0000";
+									ABUS <= W2;
+									DRW <= W2;
+									LDZ <= W2;
+									LDC <= W2;
+									
+								when "0101" =>  -- LD
+									-- 选择算术运算，传送B（保留原值）
+									M <= W2;
 									S <= "1010";
-								end if;
+									
+									ABUS <= W2;
+									LONG<=W2;
+									LAR <= W2;
+									
+									MBUS <= W3;
+									DRW <= W3;
+								when "0110" =>  -- ST
+									LONG<=W2;
+									-- 设定...
+									M <= W2 or W3;
+									
+									if(W2='1')then
+										S<="1111";
+									else
+										S<="1010";
+									end if;
+									
+									ABUS <= W2 or W3;
+									LAR <= W2;
+									
+									MEMW <= W3;							
+								when "0111" =>  -- JC
+									PCADD <= C and W2;
 								
-								ABUS <= W2 or W3;
-								LAR <= W2;
-								MEMW <= W3;
-                            when "1100" =>  -- PUSH
-                                --PUSH无法自减
-								M <= W2 or W3;
-								if (W2 = '1') then
+								when "1000" =>  -- JZ
+									PCADD <= Z and W2;
+									
+								when "1001" =>  -- JMP
+									-- 设定算术运算
+									M <= W2;
 									S <= "1111";
-								elsif (W3 = '1') then
+									
+									ABUS <= W2;
+									LPC <= W2;
+									
+								when "1010" =>  -- OUT
+									-- 设定算术运算
+									M <= W2;
 									S <= "1010";
-								end if;
+									ABUS <= W2;
+
+								when "1011" =>  -- SSP  
+									SEL3<='1';
+									LONG<=W2;
+									M <= W2 or W3;
+									if (W2 = '1') then
+										S <= "1000";
+									elsif (W3 = '1') then
+										S <= "1010";
+									end if;
+									
+									ABUS <= W2 or W3;
+									LAR <= W2;
+									MEMW <= W3;
+								when "1100" =>  -- PUSH
+									--PUSH无法自减
+									M <= W2 or W3;
+									if (W2 = '1') then
+										S <= "1111";
+									elsif (W3 = '1') then
+										S <= "1010";
+									end if;
+									
+									ABUS <=W2 or W3;
+									LAR <= W2;
+									
+									MEMW <= W3;
+									LONG <= W2;
+									
+								when "1101" =>  -- MOV B->A								
+									-- 选择逻辑运算, MOV 运算
+									M <= W2;
+									S <= "1010";
+									
+									ABUS <= W2;
+									DRW <= W2;
+									LDZ <= W2;
 								
-								ABUS <=W2 or W3;
-								LAR <= W2;
-								
-								MEMW <= W3;
-								LONG <= W2;
-								
-							when "1101" =>  -- MOV B->A								
-								-- 选择逻辑运算, MOV 运算
-								M <= W2;
-								S <= "1010";
-								
-								ABUS <= W2;
-								DRW <= W2;
-								LDZ <= W2;
-							
-							when "1110" =>  -- STP
-								STOP_REG2 <= W2;								
-                            when "1111" =>  -- LSP
-                                LING<=W2;
-								M <= W2;
-								S <= "1000";
-								
-								ABUS <= W2;
-								LAR <= W2;
-								
-								MBUS <= W3;
-								DRW <= W3;		
-							when others =>  -- 公操作
-								
-						end case;
+								when "1110" =>  -- STP
+									STOP_REG2 <= W2;								
+								when "1111" =>  -- LSP
+									LONG<=W2;
+									M <= W2;
+									S <= "1000";
+									
+									ABUS <= W2;
+									LAR <= W2;
+									
+									MBUS <= W3;
+									DRW <= W3;		
+								when others =>  -- 公操作
+									
+							end case;
+						end if;
 					when others =>
-						-- 不可能到这吧?
+							-- 不可能到这吧?
 				end case;
 			when "001" =>
 			--	SEL0<=ST0;
