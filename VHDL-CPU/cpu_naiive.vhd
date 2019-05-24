@@ -15,11 +15,7 @@ end CPU;
 
 architecture arc of CPU is
 signal ST0,ST0_1,ST0_2,STOP_1,STOP_2: std_logic;
-begin
-	CP1 <= '1';
-	CP2 <= '1';
-	CP3 <= QD;
-	
+begin	
 	with SWCBA select
 		STOP <= '0'						when "000",
 				STOP_1 or STOP_2 		when others;
