@@ -13,4 +13,8 @@
 \BOOKMARK [3][-]{subsubsection.4.2.2}{翻译成硬连线信号}{subsection.4.2}% 13
 \BOOKMARK [3][-]{subsubsection.4.2.3}{翻译成多分支程序}{subsection.4.2}% 14
 \BOOKMARK [1][-]{section.5}{调试过程中的问题及讨论}{}% 15
-\BOOKMARK [1][-]{section.6}{设计调试小结}{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{代码无法导入箱子或者代码导入箱子以后测试程序仍然发生以前的问题}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{程序运行失败}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{设计调试小结}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{向阳曦的总结}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{张逸群的总结}{section.6}% 20
