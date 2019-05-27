@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2018.11.8)  27 MAY 2019 21:45
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2018.11.8)  27 MAY 2019 22:25
 entering extended mode
 **e:/Latex/Test/jizu
 (e:/Latex/Test/jizu.tex
@@ -1366,9 +1366,9 @@ Requested font "SimSun/ICU" at 15.06pt
 .................................................
 Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 15.06pt
  -> C:/WINDOWS/Fonts/simhei.ttf
- (D:\CTEX\MiKTeX\tex\generic\oberdiek\se-ascii-print.def
-File: se-ascii-print.def 2010/03/01 v1.8 stringenc: Printable ASCII characters
-)
+ (e:\Latex\Test\jizu.toc
+Requested font "[lmroman10-bold]:mapping=tex-text" at 10.54pt
+ -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-bold.otf
 Requested font "SimSun" at 10.54pt
  -> D:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf
 Requested font "SimSun/ICU" at 10.54pt
@@ -1381,10 +1381,8 @@ Requested font "SimSun/ICU" at 10.54pt
 . 
 . This font family consists of the following shapes:
 .................................................
-Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.54pt
- -> D:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf
-Requested font "[lmroman12-bold]:mapping=tex-text" at 12.05pt
- -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman12-bold.otf
+Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.54pt
+ -> C:/WINDOWS/Fonts/simhei.ttf
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -1393,11 +1391,8 @@ Requested font "[lmroman12-bold]:mapping=tex-text" at 12.05pt
 . 
 . This font family consists of the following shapes:
 .................................................
-Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 12.05pt
- -> C:/WINDOWS/Fonts/simhei.ttf
- [1
-
-]
+Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.54pt
+ -> D:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf
 Requested font "[lmroman7-regular]:mapping=tex-text" at 7.0pt
  -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman7-regular.otf
 Requested font "[lmroman5-regular]:mapping=tex-text" at 5.0pt
@@ -1415,7 +1410,7 @@ Requested font "cmex7" at 5.0pt
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.54> not available
-(Font)              size <10.95> substituted on input line 199.
+(Font)              size <10.95> substituted on input line 3.
 
 Requested font "rsfs10" at 10.95pt
  -> rsfs10
@@ -1437,23 +1432,12 @@ Requested font "msbm5" at 5.0pt
  -> msbm5
 Requested font "cmr10" at 10.54pt
  -> cmr10
-Requested font "[lmroman10-bold]:mapping=tex-text" at 10.54pt
- -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman10-bold.otf
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'SimSun(0)' created for font 'SimSun' with options
-. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
-. 
-. This font family consists of the following shapes:
-.................................................
-Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.54pt
- -> C:/WINDOWS/Fonts/simhei.ttf
+(D:\CTEX\MiKTeX\tex\generic\oberdiek\se-ascii-print.def
+File: se-ascii-print.def 2010/03/01 v1.8 stringenc: Printable ASCII characters
+) [1
 
-Overfull \hbox (13.28978pt too wide) in paragraph at lines 250--251
- [][] 
- []
-
+])
+\tf@toc=\write6
 Requested font "[lmromanslant10-regular]:mapping=tex-text" at 10.54pt
  -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmromanslant10-regular.otf
 .................................................
@@ -1465,134 +1449,156 @@ Requested font "[lmromanslant10-regular]:mapping=tex-text" at 10.54pt
 . This font family consists of the following shapes:
 .................................................
 
+
 LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/sl' undefined
-(Font)              using `EU1/SimSun(0)/m/n' instead on input line 325.
+(Font)              using `EU1/SimSun(0)/m/n' instead on input line 163.
 
-[2] [3] [4]
+[2]
+Requested font "[lmroman12-bold]:mapping=tex-text" at 12.05pt
+ -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman12-bold.otf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
+Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;" at 12.05pt
+ -> C:/WINDOWS/Fonts/simhei.ttf
+ [3]
+Overfull \hbox (13.28978pt too wide) in paragraph at lines 247--248
+ [][] 
+ []
 
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 328.
-
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 335.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 340.
-
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
-[5]
+[4] [5]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 354.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 361.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 368.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 374.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 379.
+             The label is: \indent \indent  on input line 325.
 
 [6]
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 384.
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 388.
+             The label is: \indent \indent  on input line 332.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 393.
+             The label is: \indent \indent  on input line 337.
 
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 401.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 405.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 410.
-
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
+Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 414.
+             The label is: \indent \indent  on input line 351.
 
 [7]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 419.
+             The label is: \indent \indent  on input line 358.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 424.
+             The label is: \indent \indent  on input line 365.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 428.
+             The label is: \indent \indent  on input line 371.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 438.
+             The label is: \indent \indent  on input line 376.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 443.
+             The label is: \indent \indent  on input line 381.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 385.
 
 [8]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 447.
+             The label is: \indent \indent  on input line 390.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 451.
+             The label is: \indent \indent  on input line 398.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 457.
+             The label is: \indent \indent  on input line 402.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 464.
+             The label is: \indent \indent  on input line 407.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 411.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 416.
+
+[9]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 421.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 425.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 435.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 440.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 444.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 448.
+
+[10]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 454.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 461.
 
 Requested font "Fira Code/ICU:script=latn;language=DFLT;mapping=tex-text;" at 10.54pt
  -> C:/WINDOWS/Fonts/FiraCode-Regular.ttf
 (D:\CTEX\CTeX\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
-) [9]
+)
 Requested font "Fira Code/ICU:script=latn;language=DFLT;mapping=tex-text;" at 9.03pt
  -> C:/WINDOWS/Fonts/FiraCode-Regular.ttf
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 499.
+Requested font "[lmroman9-regular]:mapping=tex-text" at 9.03pt
+ -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf
+ [11]
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 496.
  (D:\CTEX\MiKTeX\tex\latex\euenc\eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Requested font "[lmmono9-regular]" at 9.03pt
  -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmmono9-regular.otf
-Requested font "[lmroman9-regular]:mapping=tex-text" at 9.03pt
- -> D:/CTEX/MiKTeX/fonts/opentype/public/lm/lmroman9-regular.otf
 Requested font "cmmi9" at 9.03pt
  -> cmmi9
 Requested font "cmsy9" at 9.03pt
@@ -1621,7 +1627,7 @@ Requested font "SimSun/ICU" at 9.03pt
 .................................................
 Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 9.03pt
  -> D:/CTEX/CTeX/fonts/truetype/chinese/simsun.ttf
- [10] [11] [12] [13] [14] [15] [16] [17] [18]
+ [12] [13] [14] [15] [16] [17] [18] [19]
 Missing character: There is no ( in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no 7 in font nullfont!
@@ -1650,45 +1656,54 @@ Missing character: There is no 8 in font nullfont!
 Missing character: There is no 2 in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no ; in font nullfont!
- [19]
+ [20]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 892.
+             The label is: \indent \indent  on input line 890.
 
 Missing character: There is no ​ in font [lmroman10-regular]:mapping=tex-text!
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 900.
+             The label is: \indent \indent  on input line 897.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 906.
+             The label is: \indent \indent  on input line 902.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 918.
-
-[20]
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 926.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 934.
-
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 949.
+             The label is: \indent \indent  on input line 913.
 
 [21]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 955.
+             The label is: \indent \indent  on input line 920.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 961.
+             The label is: \indent \indent  on input line 927.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 940.
+
+[22]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 945.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 950.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 965.
+
+[23]
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 969.
 
 
 LaTeX Warning: The counter will not be printed.
@@ -1696,12 +1711,15 @@ LaTeX Warning: The counter will not be printed.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 982.
+             The label is: \indent \indent  on input line 981.
 
-[22]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 991.
+             The label is: \indent \indent  on input line 986.
+
+
+LaTeX Warning: The counter will not be printed.
+             The label is: \indent \indent  on input line 990.
 
 
 LaTeX Warning: The counter will not be printed.
@@ -1711,61 +1729,54 @@ LaTeX Warning: The counter will not be printed.
 LaTeX Warning: The counter will not be printed.
              The label is: \indent \indent  on input line 1002.
 
+[24]
 
 LaTeX Warning: The counter will not be printed.
              The label is: \indent \indent  on input line 1007.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1012.
-
-
-LaTeX Warning: The counter will not be printed.
              The label is: \indent \indent  on input line 1017.
 
-[23]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1021.
+             The label is: \indent \indent  on input line 1023.
 
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1030.
-
+[25]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1035.
-
-[24]
-
-LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1050.
+             The label is: \indent \indent  on input line 1039.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1054.
+             The label is: \indent \indent  on input line 1044.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1061.
+             The label is: \indent \indent  on input line 1052.
 
-[25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1061
+
+ []
+
+[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37]
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1521.
+             The label is: \indent \indent  on input line 1531.
 
 
 LaTeX Warning: The counter will not be printed.
-             The label is: \indent \indent  on input line 1535.
+             The label is: \indent \indent  on input line 1545.
 
-[35] [36] [37]
-\tf@thm=\write6
- [38] [39]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1592.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1592.
+[38] [39] [40] [41] [42]
+\tf@thm=\write7
+ [43]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1604.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1604.
  (e:\Latex\Test\jizu.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1592.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1592.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1604.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1604.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1776,12 +1787,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 44629 strings out of 430478
- 1016813 string characters out of 3191502
- 1344819 words of memory out of 3000000
- 47044 multiletter control sequences out of 15000+200000
+ 44642 strings out of 430478
+ 1017063 string characters out of 3191502
+ 1345660 words of memory out of 3000000
+ 47054 multiletter control sequences out of 15000+200000
  14289 words of font info for 103 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  62i,14n,96p,826b,1262s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on jizu.pdf (39 pages).
+Output written on jizu.pdf (43 pages).

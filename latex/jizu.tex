@@ -150,8 +150,8 @@
 }
 
 
-\title{自制操作系统-准备篇}
-\author{向阳曦\ 2017211279\ 2017211301}
+\title{计算机组成原理课程设计报告}
+\author{向阳曦\ 2017211279\ \ \ 张逸群 \ 2017211571\\ (根据拼音排序)\\班级\ 2017211301}
 \date{}
 
 \begin{document}
@@ -159,17 +159,13 @@
 %\renewcommand{\baselinestretch}{1.5}
 \setlength{\baselineskip}{2.5em}
 \maketitle
+\tableofcontents
+\newpage
 \section{课题硬件环境描述}
-
 \begin{enumerate}[1]
 	\item 硬件: TEC-8实验电路
-	\begin{enumerate}[1]
-		\item 74181ALU等
-		\item 可编程逻辑芯片EPM7128
-	\end{enumerate}
-	\item 软件: Quartus II 9.0
+	\item 软件: Windows10, Quartus II 9.0
 \end{enumerate}
-
 \section{题目分析}
 \subsection{实验目标}
 
@@ -194,6 +190,7 @@
 向阳曦负责程序指令翻译, 张逸群负责控制台程序.\\
 报告方面,向阳曦主要完成tex矢量图绘画.两人一起完成指令解释.\\
 \indent 合并一起以后,两人一起完成控制器程序的测试.
+\newpage
 \section{设计详解}
 \subsection{硬连线控制器}
 硬连线控制器的关键是将$\mu \text{P}$(IR)信号作为控制信号的一部分,根据控制信号的组合逻辑完成下地址转移.\\
@@ -888,21 +885,20 @@ end arc;
 \indent 第十五个指令是STP指令.作用是令STOP信号为1,终止程序.\\
 \indent 第十六个指令是LSP指令.作用是把栈指针SP从存储器中读出.第一个周期和STP一样是计算出栈指针的所在位置FF,第二周期从存储器读出SP然后存到指定寄存器.
 \subsubsection{翻译成硬连线信号}
-SBUS $\leftarrow$
+这一步与普通硬连线的过程一样。\\
+\noindent SBUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $(\text{W1} + \text{W2}) \cdot \text{SWC} \cdot \overline{\text{SWB}} \cdot \overline{\text{SWA}}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}} \cdot \overline {\text{ST0}}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot  \text{SWA}$+
 ​	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}}\cdot \overline{\text{ST0}} $
 \end{enumerate}
-
-MBUS $\leftarrow$
+\noindent MBUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}} \cdot \text{ST0}$+
 	\item $\text{W2} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}}$
 \end{enumerate}
-
-ABUS $\leftarrow$
+\noindent ABUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W1}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W1}$+
@@ -913,24 +909,21 @@ ABUS $\leftarrow$
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W1}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W1}$
 \end{enumerate}
-
-LAR $\leftarrow$
+\noindent LAR $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}} \cdot \overline{\text{ST0}}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \text{SWA} \cdot \overline{\text{ST0}}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W1}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W1}$
 \end{enumerate}
-
-SST0 $\leftarrow$
+\noindent SST0 $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}} \cdot \overline{\text{ST0}}$+
 	\item $\text{W2} \cdot \text{SWC} \cdot \overline{\text{SWB}} \cdot \overline{\text{SWA}} \cdot \overline{\text{ST0}}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \text{SWA} \cdot \overline{\text{ST0}}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \overline{\text{SWA}} \cdot \overline{\text{ST0}}$
 \end{enumerate}
-
-SHORT $\leftarrow$
+\noindent SHORT $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}}$
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \text{SWA}$
@@ -943,21 +936,17 @@ SHORT $\leftarrow$
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \text{IR4} \cdot \text{W1} \cdot \overline{C}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W1} \cdot \overline{Z}$
 \end{enumerate}
-
-
-ARINC $\leftarrow$
+\noindent ARINC $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \text{SWB} \cdot \overline{\text{SWA}} \cdot \text{ST0}$+
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \text{SWA} \cdot \text{ST0}$
 \end{enumerate}
-
-MEMW $\leftarrow$
+\noindent MEMW $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\text{W1} \cdot \overline{\text{SWC}} \cdot \overline{\text{SWB}} \cdot \text{SWA} \cdot \text{ST0}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$
 \end{enumerate}
-
-LIR $\leftarrow$
+\noindent LIR $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W1}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W1}$+
@@ -972,13 +961,11 @@ LIR $\leftarrow$
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
 	\item $\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\overline{\text{ST0}}\cdot\text{W1}$
 \end{enumerate}
-
-CIN $\leftarrow$
+\noindent CIN $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W1}$
 \end{enumerate}
-
-M $\leftarrow$
+\noindent M $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \text{IR4} \cdot \text{W2}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
@@ -986,38 +973,37 @@ M $\leftarrow$
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$
 \end{enumerate}
-
-SEL0$\leftarrow$
+\noindent SEL0$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W1}$
 \end{enumerate}
-
-SEL1$\leftarrow$
+\noindent SEL1$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W2}\cdot\text{ST0}$+
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W1}\cdot\overline{\text{ST0}}$
 \end{enumerate}
-
-SEL2$\leftarrow$
+\noindent SEL2$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W2}$
 \end{enumerate}
-
-SEL3$\leftarrow$
+\noindent SEL3$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W1}\cdot\text{ST0}$+
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W2}\cdot\overline{\text{ST0}}$
 \end{enumerate}
-STOP$\leftarrow$
+\noindent STOP
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWA}+\text{SWB}+\text{SWC}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot {\text{IR7}} \cdot {\text{IR6}}\cdot {\text{IR5}}\cdot \overline{\text{IR4}} \cdot \text{ST0}\cdot \text{W2}$
 \end{enumerate}
-SELCTL$\leftarrow$
+\noindent SELCTL
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWA}}+\overline{\text{SWB}}+\overline{\text{SWC}}$
 \end{enumerate}
-DRW$\leftarrow$
+\noindent DRW
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W2}$+
@@ -1026,12 +1012,14 @@ DRW$\leftarrow$
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot{\text{IR4}}\cdot\text{W3}$
 \end{enumerate}
-PCADD$\leftarrow$
+\noindent PCADD
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot{\text{IR5}}\cdot{\text{IR4}}\cdot\text{C}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{Z}\cdot\text{W2}$
 \end{enumerate}
-PCINC $\leftarrow$
+\noindent PCINC
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W1}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W1}$+
@@ -1046,18 +1034,21 @@ PCINC $\leftarrow$
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
 	\item $\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\overline{\text{ST0}}\cdot\text{W1}$
 \end{enumerate}
-LPC$\leftarrow$
+\noindent LPC
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\overline{\text{ST0}}\cdot\text{W1}$
 \end{enumerate}
-LDC$\leftarrow$
+\noindent LDC
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W1}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W1}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\text{IR5}\cdot\text{IR4}\cdot\text{W1}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W1}$
 \end{enumerate}
-LDZ$\leftarrow$
+\noindent LDZ
+$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W1}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W1}$+
@@ -1065,6 +1056,7 @@ LDZ$\leftarrow$
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W1}$
 \end{enumerate}
 \subsubsection{翻译成多分支程序}
+这一步与普通硬连线的过程一样。\\
 {\firacode
 \begin{lstlisting}[language={VHDL}]
 library IEEE;
@@ -1441,6 +1433,7 @@ end arc;
 		\node at (9, -4) {exec};
 	\end{tikzpicture}
 \end{figure}
+流水CPU设计的关键是重叠无冲突的指令，在这里，取指操作LIR和指针加一操作PCINC与其他指令不是互斥的，所以可以将取指和执行重合，从而缩短cpu执行指令的周期消耗。
 \subsection{新增的栈指令}
 \begin{figure}[!ht]
 	\centering
@@ -1453,13 +1446,15 @@ end arc;
 		\draw [-] (-5, 0) -- (-5, 1.6);
 		\draw [-] (-6, 0) -- (-6, 1.6);
 		\draw [-] (-7, 0) -- (-7, 1.6);
+		\draw [->] (-6.5, -0.5) -- (-6.5, -0.2);
+		\node [below] at (-6.5, -0.5) {SP};
         \node[rotate=90] at (-0.5, 0.8) {SP};
         \node[rotate=90] at (-1.5, 0.8) {data};
         \node[rotate=90] at (-2.5, 0.8) {data};
         \node[rotate=90] at (-3.5, 0.8) {data};
         \node[rotate=90] at (-4.5, 0.8) {data};
         \node[rotate=90] at (-5.5, 0.8) {data};
-        \node[rotate=90] at (-6.5, 0.8) {data};
+        \node[rotate=90] at (-6.5, 0.8) {idle};
         \node[above] at (-0.5, 1.6) {FF};
         \node[above] at (-1.5, 1.6) {FE};
         \node[above] at (-2.5, 1.6) {FD};
@@ -1471,25 +1466,40 @@ end arc;
         \node[above] at (-7.5, 1.6) {...};
 	\end{tikzpicture}
 \end{figure}
-本次实验在原指令集的基础上扩增了三条指令压栈指令PUSHS,存栈指针指令SSP,取栈指针指令LSP.同时复用了退栈指令POPS(INC).
-\subsection{流水机指令格式}
+本次实验在原指令集的基础上扩增了三条指令压栈指令PUSHS,存栈指针指令SSP,取栈指针指令LSP.同时复用了退栈指令POPS(INC).\\
+\indent 执行LSP指令以后，栈操作PUSHS，POPS有效，可用寄存器个数减少为3个。\\
+\indent 执行SSP指令以后，存储器中的SP指针被更新，可用寄存器个数增加至4个。\\
+\indent 新增栈以后，允许程序有更强大的功能，例如函数传参，天然拥有上下文无关文法的分析和编程功能等。
+\newpage
 \section{指令格式}
 \begin{table}[htbp!]
     \centering
-    \begin{tabular}{p{1.5cm}<{\centering}|p{2cm}<{\centering}|p{4cm}<{\centering}|p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}}
+    \begin{tabular}{p{2.5cm}<{\centering}|p{2cm}<{\centering}|p{4cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}}
         \multirow{2}*{名称}&\multirow{2}*{助记符}&\multirow{2}*{功能}&\multicolumn{3}{c}{指令格式}\\
-        \cline{4-6}~ & ~ & ~ & IR7 IR6 IR5 IR4 &IR3 IR2 & IR1 IR0\\
+        \cline{4-6}~ & ~ & ~ & IR7 $\sim$4 &IR3 IR2 & IR1 IR0\\
         \hline
         加法 & ADD $R_d$ $R_s$ & $R_d \leftarrow R_d\text{ and } R_s$ & 0001 & $R_d$& $R_s$\\
         减法 & SUB $R_d$ $R_s$ & $R_d \leftarrow R_d \text{ minus } R_s$ & 0010 & $R_d$& $R_s$\\
         逻辑与 & AND $R_d$ $R_s$ & $R_d \leftarrow R_d \text{ and } R_s$ & 0011 & $R_d$& $R_s$\\
         加1 & INC $R_d$ & $R_d \leftarrow R_d \text{ and } 1$ & 0100 & $R_d$& XX\\
         取数 & LD $R_d$ [$R_s$] & $R_d \leftarrow [R_s]$ & 0101 & $R_d$& $R_s$\\
+        存数 & ST $R_s$ [$R_d$] & $R_s \rightarrow [R_d]$ & 0110 & $R_d$& $R_s$\\
+        \cline{5-6}C条件转移 & JC addr & $PC \leftarrow @ + C\cdot \text{ofs}$ & 0111 & \multicolumn{2}{c}{ofs}\\
+        \cline{5-6}Z条件转移 & JZ addr & $PC \leftarrow @ + Z\cdot \text{ofs}$ & 1000 & \multicolumn{2}{c}{ofs}\\
+		\cline{5-6}无条件转移 & JMP [$R_d$] & $PC \rightarrow R_d$ & 1001 & $R_d$& XX\\
+		输出 & OUT $R_s$ & $DBUS \leftarrow R_s$ & 1010 & XX & $R_s$\\
+		\cline{5-6}取栈指针 & SSP $R_3$ & $R_3 \leftarrow [\text{0xFF}/SP]$ & 1011 & \multicolumn{2}{c}{1111}\\
+		\cline{5-6}压栈 & PUSH $R_s$ & $[\text{0xFF}/SP] \leftarrow R_s $ & 1100 & 11 & $R_s$\\
+		\cline{5-6}移动 & MOV $R_d$ $R_s$ & $R_d \leftarrow R_s$ & 1101 & $R_d$ & $R_s$\\
+		停机 & STP & STOP& 1110 & XX& XX\\
+		\cline{5-6}存栈指针 & LSP & $[\text{0xFF}/SP] \rightarrow R_s $ & 1111 & \multicolumn{2}{c}{1111} \\
 
     \end{tabular}
 \end{table}
+
+\newpage
 \section{上机调试通用流程}
-在每次实验之前,我们都会先做下面几个工作
+在每次实验之前,我们都会先做下面几个工作。
 \subsection{写寄存器(100)}
 按照之前的指令流程进行指令操作.具体是：
 \begin{enumerate}[\indent\indent 1]
@@ -1539,6 +1549,8 @@ end arc;
 	\item SSP, 1011 1111
 \end{enumerate}
 检查存储器[FF] = FC, [FE] = FA, [FD] = 0C.检查$R_3=\text{FC}$.
+
+\newpage
 \section{调试过程中的问题及讨论}
 \subsection{代码无法导入箱子或者代码导入箱子以后测试程序仍然发生以前的问题}
 这里暂且不考虑箱子信号的问题,具体原因可能有几个.
@@ -1558,9 +1570,8 @@ end arc;
 	\item 当上述情况均为发生,应当考虑是否是程序代码有问题.
 \end{enumerate}
 \subsection{隐含敏感指令问题}
-\begin{enumerate}
-	\item 
-\end{enumerate}
+设计的时候主要考虑每个信号什么时候应该为1,然后在进程里面相应的地方给输出赋值即可.然后VDHL的进程会在敏感参数表发生改变的时候唤醒.所以不能直接在进程里面修改敏感信号,要新建一个SIGNAL记录有没有修改输出,然后在每个时钟的下降沿修改输出,这样就不会一直唤醒自己了.
+\newpage
 \section{设计调试小结}
 \subsection{向阳曦的总结}
 在调试硬件及其编程语言时,一定要注意硬件的不可靠性.\\
@@ -1583,6 +1594,7 @@ end arc;
 \indent \indent 1.要求A,B选择的寄存器一致;2.第一个周期将$A|\overline{B}$送入AR.3.取出FF上的值到$A$寄存器上.\\
 \indent 这样只需要额外一条指令就能临时得到$SP$,额外另一条指令就能存储$SP$.\\
 \indent 最后,我们将栈设计为向下生长,将POPS合并到INC SP中.又节约了一条指令空间,将这个指令编码给了另一个指令MOV.
+\newpage
 \subsection{张逸群的总结}
 课程设计让我对计算机组成原理有了更深刻的了解.\\
 \indent 就课程设计的要求来说,流水机器和非流水机的差别不大,无非是什么时候取指令的问题.非流水机需要一个额外的时钟来取值,由于TEC8最多只有3个时钟,也就是说其他操作要在2个时钟内完成,这个给设计带来了很大的不便.流水机在执行的时候顺便取指令,这样能节约出来一个周期.\\
