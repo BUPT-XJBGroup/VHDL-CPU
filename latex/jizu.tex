@@ -190,6 +190,7 @@
 
 \section{团队分工}
 向阳曦负责程序指令翻译, 张逸群负责控制台程序。\\
+报告方面，向阳曦主要完成tex矢量图绘画。两人一起完成指令解释。\\
 \indent 合并一起以后,两人一起完成控制器程序的测试。
 \section{设计详解}
 \subsection{硬连线控制器}
@@ -336,13 +337,16 @@ MBUS $\leftarrow$
 ABUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \text{IR4} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot (\text{W2} + \text{W3})$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
-	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$
+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4} }\cdot \text{W2}$+
+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \text{IR4} \cdot \text{W2}$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W2}$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \text{IR6} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot (\text{W2} + \text{W3})$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \text{IR4} \cdot \text{W2}$+
+​	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \text{IR7} \cdot \overline{\text{IR6}} \cdot \text{IR5} \cdot \overline{\text{IR4}} \cdot \text{W2}$
 \end{enumerate}
 LAR $\leftarrow$
 \begin{enumerate}[\indent\indent]
@@ -380,6 +384,7 @@ LIR $\leftarrow$
 \end{enumerate}
 CIN $\leftarrow$
 \begin{enumerate}[\indent\indent]
+	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4} }\cdot \text{W2}$+
 	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4}} \cdot \text{W2}$
 \end{enumerate}
 M $\leftarrow$
@@ -420,7 +425,8 @@ SELCTL$\leftarrow$
 DRW$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\text{SWC}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}$+
-	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W2}$+
+	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4} }\cdot \text{W2}$+	
+	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W2}$+	
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\text{IR5}\cdot\text{IR4}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
@@ -444,17 +450,18 @@ LONG$\leftarrow$
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W2}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot{\text{IR4}}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{W2}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}$
 \end{enumerate}
+
 LDC$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W2}$+
-	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
+	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4} }\cdot \text{W2}$+\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\text{IR5}\cdot\text{IR4}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$
 \end{enumerate}
 LDZ$\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\text{IR4}\cdot\text{W2}$+
-	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
+	\item $\overline{\text{SWC}} \cdot\overline{\text{SWB}}\cdot \overline{\text{SWA}} \cdot \overline{\text{IR7}} \cdot \overline{\text{IR6}} \cdot \overline{\text{IR5}} \cdot \overline{\text{IR4} }\cdot \text{W2}$+\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot\overline{\text{IR6}}\cdot\text{IR5}\cdot\text{IR4}\cdot\text{W2}$+
 	\item$\overline{\text{SWC}}\cdot\overline{\text{SWB}}\cdot\overline{\text{SWA}}\cdot\text{ST0}\cdot\overline{\text{IR7}}\cdot{\text{IR6}}\cdot\overline{\text{IR5}}\cdot\overline{\text{IR4}}\cdot\text{W2}$
 \end{enumerate}
@@ -1404,7 +1411,63 @@ begin
 end arc;
 \end{lstlisting}
 }
-
+\subsection{流水CPU的实现关键}
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}
+		\node [above] at (0, 0.1) {指令周期T方向};
+		\draw [->] (-1,0) -- (11,0);
+		\draw [-] (0, 0.03) node [below] {0} -- (0, -0.03);
+		\draw [-] (2, 0.03) node [below] {1} -- (2, -0.03);
+		\draw [-] (4, 0.03) node [below] {2} -- (4, -0.03);
+		\draw [-] (6, 0.03) node [below] {3} -- (6, -0.03);
+		\draw [-] (8, 0.03) node [below] {4} -- (8, -0.03);
+		\draw [-] (10, 0.03) node [below] {5} -- (10, -0.03);
+        \draw[rounded corners] (0, -0.5) rectangle (4, -1.5);
+        \draw[rounded corners] (2, -2) rectangle (8, -3);
+		\draw[rounded corners] (6, -3.5) rectangle (10, -4.5);
+		\draw [-] (2, -0.5) -- (2, -1.5);
+		\draw [-] (4, -2) -- (4, -3);
+		\draw [-] (8, -3.5) -- (8, -4.5);
+		\node at (1, -1) {fetch};
+		\node at (3, -1) {exec};
+		\node at (3, -2.5) {fetch};
+		\node at (6, -2.5) {exec};
+		\node at (7, -4) {fetch};
+		\node at (9, -4) {exec};
+	\end{tikzpicture}
+\end{figure}
+\subsection{新增的栈指令}
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}
+		\draw [-] (-10, 0) -- (0, 0) -- (0, 1.6) -- (-10, 1.6);
+		\draw [-] (-1, 0) -- (-1, 1.6);
+		\draw [-] (-2, 0) -- (-2, 1.6);
+		\draw [-] (-3, 0) -- (-3, 1.6);
+		\draw [-] (-4, 0) -- (-4, 1.6);
+		\draw [-] (-5, 0) -- (-5, 1.6);
+		\draw [-] (-6, 0) -- (-6, 1.6);
+		\draw [-] (-7, 0) -- (-7, 1.6);
+        \node[rotate=90] at (-0.5, 0.8) {SP};
+        \node[rotate=90] at (-1.5, 0.8) {data};
+        \node[rotate=90] at (-2.5, 0.8) {data};
+        \node[rotate=90] at (-3.5, 0.8) {data};
+        \node[rotate=90] at (-4.5, 0.8) {data};
+        \node[rotate=90] at (-5.5, 0.8) {data};
+        \node[rotate=90] at (-6.5, 0.8) {data};
+        \node[above] at (-0.5, 1.6) {FF};
+        \node[above] at (-1.5, 1.6) {FE};
+        \node[above] at (-2.5, 1.6) {FD};
+        \node[above] at (-3.5, 1.6) {FC};
+        \node[above] at (-4.5, 1.6) {FB};
+        \node[above] at (-5.5, 1.6) {FA};
+        \node[above] at (-6.5, 1.6) {F0};
+        \node at (-7.5, 0.8) {...};
+        \node[above] at (-7.5, 1.6) {...};
+	\end{tikzpicture}
+\end{figure}
+本次实验在原指令集的基础上扩增了三条指令压栈指令PUSHS,存栈指针指令SSP,取栈指针指令LSP。同时复用了退栈指令POPS(INC).
 \section{调试过程中的问题及讨论}
 \subsection{代码无法导入箱子或者代码导入箱子以后测试程序仍然发生以前的问题}
 这里暂且不考虑箱子信号的问题,具体原因可能有几个.
@@ -1422,6 +1485,10 @@ end arc;
 	\item AR损坏,表现行为是计算预期地址和实际显示AR不一致.
 	\item 信号冲突,并行信号如果有先后关系,则有很大概率失败,比如STOP/SST0.
 	\item 当上述情况均为发生,应当考虑是否是程序代码有问题.
+\end{enumerate}
+\subsection{隐含敏感指令问题}
+\begin{enumerate}
+	\item 
 \end{enumerate}
 \section{设计调试小结}
 \subsection{向阳曦的总结}
@@ -1446,4 +1513,9 @@ end arc;
 \indent 这样只需要额外一条指令就能临时得到$SP$，额外另一条指令就能存储$SP$.\\
 \indent 最后,我们将栈设计为向下生长,将POPS合并到INC SP中.又节约了一条指令空间,将这个指令编码给了另一个指令MOV.
 \subsection{张逸群的总结}
+课程设计让我对计算机组成原理有了更深刻的了解。\\
+\indent 就课程设计的要求来说，流水机器和非流水机的差别不大，无非是什么时候取指令的问题。非流水机需要一个额外的时钟来取值，由于TEC8最多只有3个时钟，也就是说其他操作要在2个时钟内完成，这个给设计带来了很大的不便。流水机在执行的时候顺便取指令，这样能节约出来一个周期。\\
+\indent 设计的时候主要考虑每个信号什么时候应该为1，然后在进程里面相应的地方给输出赋值即可。然后VDHL的进程会在敏感参数表发生改变的时候唤醒。所以不能直接在进程里面修改敏感信号，要新建一个SIGNAL记录有没有修改输出，然后在每个时钟的下降沿修改输出，这样就不会一直唤醒自己了。\\
+\indent 还有个问题是指令的问题，由于TEC8的模式是前四位是指令，后四位是参数，由于后四位只能读入不能输出，所以参数必须要手动给出，而且用不了立即数的形式，这样的结果是一些原本很简单的操作会变得非常麻烦，需要用寄存器中转一下。有些原本可以隐式给出的参数也必须需要手动给出，不过有个例外是FF，这个可以通过ALU算出来，因为$A|(!A)=FF$，同理$A\&(!A)=0$，也可以不用手动给出。不过这样的代价是浪费了一个周期来计算隐式给出的参数。\\
+\indent 剩下的问题都不是太多了，按照求出来的表达式写一下就可以了。
 \end{document}
