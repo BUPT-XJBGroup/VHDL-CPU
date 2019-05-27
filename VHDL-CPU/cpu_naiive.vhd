@@ -93,6 +93,14 @@ begin
 							PCINC<=W1;
 						else                        
 							case IRH is 
+								when "0000" => -- DEC								
+									-- 选择算术运算, 与运算
+									-- M已经被初始化为0
+									S <= "1111";
+									ABUS <= W2;
+									DRW <= W2;
+									LDZ <= W2;
+									LDC <= W2;
 								when "0001" =>  --ADD 														
 									-- ABUS = W2
 									ABUS <= W2;
