@@ -70,6 +70,7 @@
 % control
 \usepackage{ifthen}
 \usepackage{intcalc}
+\usepackage{array}
 
 % format
 \usepackage{indentfirst}
@@ -135,6 +136,7 @@
 
 % table
 \usepackage{csvsimple}
+\usepackage{multirow}
 
 % graph
 \usepackage{tikz}
@@ -189,13 +191,13 @@
 \end{enumerate}
 
 \section{团队分工}
-向阳曦负责程序指令翻译, 张逸群负责控制台程序。\\
-报告方面，向阳曦主要完成tex矢量图绘画。两人一起完成指令解释。\\
-\indent 合并一起以后,两人一起完成控制器程序的测试。
+向阳曦负责程序指令翻译, 张逸群负责控制台程序.\\
+报告方面,向阳曦主要完成tex矢量图绘画.两人一起完成指令解释.\\
+\indent 合并一起以后,两人一起完成控制器程序的测试.
 \section{设计详解}
 \subsection{硬连线控制器}
 硬连线控制器的关键是将$\mu \text{P}$(IR)信号作为控制信号的一部分,根据控制信号的组合逻辑完成下地址转移.\\
-\indent 为了设计的方便，一般先将指令周期流程图画出，然后根据指令周期流程图写出组合逻辑。VHDL可以根据组合逻辑的特征，合并多个相似的控制信号组合为分支条件语句。
+\indent 为了设计的方便,一般先将指令周期流程图画出,然后根据指令周期流程图写出组合逻辑.VHDL可以根据组合逻辑的特征,合并多个相似的控制信号组合为分支条件语句.
 \subsubsection{硬连线控制器控制台指令流程图}
 \begin{figure}[!h]
     \centering
@@ -249,21 +251,21 @@
 \end{figure}
 其中CLR表示转移到$\varnothing$.任意没有出边的状态也都转移到$\varnothing$,任意时刻传入CLR信号也都转移到$\varnothing$.\\
 {\bfseries 写寄存器(SWC, SWB, SWA = 100)}\\
-\indent 写寄存器控制台指令(100)一共有四个周期,第一个周期写$R_0$寄存器。\\
-\indent 首先说明$R_0$数据从何进入系统.在TEC-8的控制台上，有八个并排的数据通路开关.当SBUS信号有效时, 数据通路开关对应的8位数据会依次进入DBUS上对应的8个并排数据线.\\
-\indent 其次说明如何将数据从DBUS打入$R_0$寄存器。注意到我们将$\text{SEL}_{3}\text{SEL}_{2}$设置为00，表明ALU的A侧寄存器指针指向了$R_0$寄存器，同时SBUS的DRW信号会使DBUS上的数据进入A侧寄存器指针指向的寄存器中。\\
-剩下两个未说明的信号SELCTL, STOP的作用分别为设置当前指令有控制台操作，指令运行以后暂停。以后所有指令中这两个信号都是同一含义.\\
-\indent 最后是一个无关紧要的细节.$\text{SEL}_{1}\text{SEL}_{0}$被设置为1，表明ALU的B侧寄存器指向了$R_3$寄存器，这样控制台上的B侧状态灯会显示$R_3$中的数据状态。这方便我们检验$R_3$数据是否为我们想要的数据。\\
-\indent 接下来3个周期分别为写$R_1$寄存器,写$R_2$寄存器和写$R_3$寄存器。这三个指令执行完毕以后，没有下一个指令框，表明我们会跳转回$\varnothing$指令上, $\varnothing$什么也不执行\\
-\indent 注意到我们在写$R_1$寄存器时，有一个SST0信号，这个信号表示ST0信号被置为1，当ST0信号被置为1时，硬连线控制程序不会立即跳回空指令(这里有两个周期，为程序的默认指令周期长度。如果不给ST0信号，程序控制将无法区分同一个指令的一二和三四周期如何给出控制信号)，相当于为写寄存器指令延长两个周期。\\
+\indent 写寄存器控制台指令(100)一共有四个周期,第一个周期写$R_0$寄存器.\\
+\indent 首先说明$R_0$数据从何进入系统.在TEC-8的控制台上,有八个并排的数据通路开关.当SBUS信号有效时, 数据通路开关对应的8位数据会依次进入DBUS上对应的8个并排数据线.\\
+\indent 其次说明如何将数据从DBUS打入$R_0$寄存器.注意到我们将$\text{SEL}_{3}\text{SEL}_{2}$设置为00,表明ALU的A侧寄存器指针指向了$R_0$寄存器,同时SBUS的DRW信号会使DBUS上的数据进入A侧寄存器指针指向的寄存器中.\\
+剩下两个未说明的信号SELCTL, STOP的作用分别为设置当前指令有控制台操作,指令运行以后暂停.以后所有指令中这两个信号都是同一含义.\\
+\indent 最后是一个无关紧要的细节.$\text{SEL}_{1}\text{SEL}_{0}$被设置为1,表明ALU的B侧寄存器指向了$R_3$寄存器,这样控制台上的B侧状态灯会显示$R_3$中的数据状态.这方便我们检验$R_3$数据是否为我们想要的数据.\\
+\indent 接下来3个周期分别为写$R_1$寄存器,写$R_2$寄存器和写$R_3$寄存器.这三个指令执行完毕以后,没有下一个指令框,表明我们会跳转回$\varnothing$指令上, $\varnothing$什么也不执行\\
+\indent 注意到我们在写$R_1$寄存器时,有一个SST0信号,这个信号表示ST0信号被置为1,当ST0信号被置为1时,硬连线控制程序不会立即跳回空指令(这里有两个周期,为程序的默认指令周期长度.如果不给ST0信号,程序控制将无法区分同一个指令的一二和三四周期如何给出控制信号),相当于为写寄存器指令延长两个周期.\\
 {\bfseries 读寄存器(SWC, SWB, SWA = 011)}\\
-\indent 读存储器没有新的信号需要解释。第一个指令周期我们将$SEL_{3210}$设为$0001$，这样A侧状态灯会显示$R_0$的数据, B侧状态灯会显示$R_1$的数据。第二个指令周期我们将$SEL_{3210}$设为$1011$，这样A侧状态灯会显示$R_2$的数据, B侧状态灯会显示$R_3$的数据。\\
+\indent 读存储器没有新的信号需要解释.第一个指令周期我们将$SEL_{3210}$设为$0001$,这样A侧状态灯会显示$R_0$的数据, B侧状态灯会显示$R_1$的数据.第二个指令周期我们将$SEL_{3210}$设为$1011$,这样A侧状态灯会显示$R_2$的数据, B侧状态灯会显示$R_3$的数据.\\
 {\bfseries 读存储器(SWC, SWB, SWA = 010)}\\
-\indent 读存储器的第一个周期是准备操作, LAR负责将SBUS信号送入的数据通路数据写入AR，指定了从何处开始读取数据. 第二至第$N$个周期，是读取操作。MBUS信号会操作主存打开朝向DBUS的总线，使主存中AR寄存器指向的地址的数据得以输出。SHORT信号操作控制器只发出$W_1$周期信号，为单周期控制信号。ARINC负责将AR在本周期结束时自增1。读取周期会一直重复到控制台接收到使用者发出的CLR信号。\\
+\indent 读存储器的第一个周期是准备操作, LAR负责将SBUS信号送入的数据通路数据写入AR,指定了从何处开始读取数据. 第二至第$N$个周期,是读取操作.MBUS信号会操作主存打开朝向DBUS的总线,使主存中AR寄存器指向的地址的数据得以输出.SHORT信号操作控制器只发出$W_1$周期信号,为单周期控制信号.ARINC负责将AR在本周期结束时自增1.读取周期会一直重复到控制台接收到使用者发出的CLR信号.\\
 {\bfseries 写存储器(SWC, SWB, SWA = 001)}\\
-\indent 写存储器的第一个周期是准备操作， LAR负责将SBUS信号送入的数据通路数据写入AR，指定了从何处开始读取数据. 第二至第$N$个周期，是写入操作。SBUS信号会操作数据通路开关上的数据进入DBUS，注意到MEMW有效，因此DBUS的数据会同时打入AR指定的存储器地址。\\
+\indent 写存储器的第一个周期是准备操作, LAR负责将SBUS信号送入的数据通路数据写入AR,指定了从何处开始读取数据. 第二至第$N$个周期,是写入操作.SBUS信号会操作数据通路开关上的数据进入DBUS,注意到MEMW有效,因此DBUS的数据会同时打入AR指定的存储器地址.\\
 {\bfseries 执行程序(SWC, SWB, SWA = 000)}\\
-\indent 执行程序的第一个周期是准备操作，SBUS信号会操作数据通路开关上的数据进入DBUS，这时LPC信号有效，使得DBUS数据打入PC指针。给出SST0信号以后ST0信号一直有效，程序会一直在exec的循环中，直到控制台接收到使用者发出的CLR信号。
+\indent 执行程序的第一个周期是准备操作,SBUS信号会操作数据通路开关上的数据进入DBUS,这时LPC信号有效,使得DBUS数据打入PC指针.给出SST0信号以后ST0信号一直有效,程序会一直在exec的循环中,直到控制台接收到使用者发出的CLR信号.
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
@@ -317,11 +319,11 @@
 	\end{tikzpicture}
 \end{figure}\\
 \indent 上图显示了从左到右,从上到下依次为ADD, SUB, AND, INC, LD, ST, JC, JZ, JMP, OUT, STP的所有指令, 为了画图方便, 没有列入的指令为DEC(0000), SSP(1011), PUSHS(1100), MOV(1101), POPS(1111).\\
-\indent 我们将NOP指令(空指令)改为了DEC指令，这不影响程序的正确性，因为JMP指令可以代NOP完成地址跳转.\\
+\indent 我们将NOP指令(空指令)改为了DEC指令,这不影响程序的正确性,因为JMP指令可以代NOP完成地址跳转.\\
 \indent 需要注意的是, 如果某条指令包含SHORT, 那么它是一个单拍指令, 如果某条指令包含LONG,那么它的下一拍还属于该指令, 计三拍.\\
-\indent 关于指令的具体说明，参考流水硬连线的各指令说明，因为这两者除了流水的特征没有其他区别。
+\indent 关于指令的具体说明,参考流水硬连线的各指令说明,因为这两者除了流水的特征没有其他区别.
 \subsubsection{翻译成硬连线信号}
-这一步比较简单，按照$SWC, SWB, SWA, IR_{7654}$将状态编号，依此对信号进行组合。\\
+这一步比较简单,按照$SWC, SWB, SWA, IR_{7654}$将状态编号,依此对信号进行组合.\\
 \noindent SBUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
 	\item $(\text{W1} + \text{W2}) \cdot \text{SWC} \cdot \overline{\text{SWB}} \cdot \overline{\text{SWA}}$+
@@ -778,11 +780,11 @@ end arc;
 	\node [above] at (-3, -0.6) {$\text{IR}_{7654}$ = 0000 $\sim$ 0011};
 	\end{tikzpicture}
 \end{figure}
-上图给出了第一组四个指令的周期。\\
-\indent 第一个是NOP空指令，只加载下地址指令，并向控制器发送SHORT信号表明该指令只有一个周期。\\
-\indent 第二个是ADD指令。M=0,S=1001表明ALU完成加法运算, CIN=1表明ALU不进1，这时候ALU将A侧寄存器和B侧寄存器作为输入，ABUS将ALU的运算结果$A\text{ plus }B$打入DBUS。DRW将DBUS数据打入A侧寄存器，因此这个指令完成了$A\leftarrow A\text{ plus }B$。\\
-\indent 第三个是SUB指令。M=0,S=0110表明ALU完成减法运算, CIN=0表明ALU进1，这时候ALU将A侧寄存器和B侧寄存器作为输入，ABUS将ALU的运算结果$A\text{ minus }B\text{ minus }1\text{ plus }1$打入DBUS。DRW将DBUS数据打入A侧寄存器，因此这个指令完成了$A\leftarrow A\text{ minus }B$。\\
-\indent 第四个是AND指令。M=1,S=1011表明ALU完成且运算，这时候ALU将A侧寄存器和B侧寄存器作为输入，ABUS将ALU的运算结果$AB$打入DBUS。DRW将DBUS数据打入A侧寄存器，因此这个指令完成了$A\leftarrow AB$。
+上图给出了第一组四个指令的周期.\\
+\indent 第一个是NOP空指令,只加载下地址指令,并向控制器发送SHORT信号表明该指令只有一个周期.\\
+\indent 第二个是ADD指令.M=0,S=1001表明ALU完成加法运算, CIN=1表明ALU不进1,这时候ALU将A侧寄存器和B侧寄存器作为输入,ABUS将ALU的运算结果$A\text{ plus }B$打入DBUS.DRW将DBUS数据打入A侧寄存器,因此这个指令完成了$A\leftarrow A\text{ plus }B$.\\
+\indent 第三个是SUB指令.M=0,S=0110表明ALU完成减法运算, CIN=0表明ALU进1,这时候ALU将A侧寄存器和B侧寄存器作为输入,ABUS将ALU的运算结果$A\text{ minus }B\text{ minus }1\text{ plus }1$打入DBUS.DRW将DBUS数据打入A侧寄存器,因此这个指令完成了$A\leftarrow A\text{ minus }B$.\\
+\indent 第四个是AND指令.M=1,S=1011表明ALU完成且运算,这时候ALU将A侧寄存器和B侧寄存器作为输入,ABUS将ALU的运算结果$AB$打入DBUS.DRW将DBUS数据打入A侧寄存器,因此这个指令完成了$A\leftarrow AB$.
 \newpage
 \begin{figure}[!h]
     \centering
@@ -815,11 +817,12 @@ end arc;
 	\node [above] at (-3, -5.45) {$\text{IR}_{7654}$ = 0100 $\sim$ 0111};
 	\end{tikzpicture}
 \end{figure}
-上图给出了第二组四个指令的周期。\\
-\indent 第五个指令是INC指令。M=0, S=0000表明ALU完成自输出运算，CIN=0表明ALU进1，这时候ALU将A侧寄存器作为输入，ABUS将ALU的运算结果$A$打入DBUS，因此DRW将DBUS数据打入A侧寄存器，因此这个指令完成了$A\leftarrow A \text{ plus } 1$。\\
-\indent 第六个指令是LD指令。在指令的第一个周期，M=1,S=1010表明ALU完成自输出。\\
-\indent 第七个指令是ST指令。在指令的第一个周期，M=1,S=1111表示把地址送到地址寄存器，第二个周期把数据送上数据总线并且写入存储器。\\
-\indent 第八个指令是JC指令。如果当前的C不为1,则直接取下一条的指令结束，如果当前的C为1，会调用PCADD把当前的PC加上偏移的offset，最后还是流水机的取指令共操作。
+上图给出了第二组四个指令的周期.\\
+\indent 第五个指令是INC指令.M=0, S=0000表明ALU完成自输出运算,CIN=0表明ALU进1,这时候ALU将A侧寄存器作为输入,ABUS将ALU的运算结果$A$打入DBUS,因此DRW将DBUS数据打入A侧寄存器,因此这个指令完成了$A\leftarrow A \text{ plus } 1$.\\
+\indent 第六个指令是LD指令.在指令的第一个周期,M=1,S=1010表明ALU完成自输出.\\
+\indent 第七个指令是ST指令.在指令的第一个周期,M=1,S=1111表示把地址送到地址寄存器,第二个周期把数据送上数据总线并且写入存储器.\\
+\indent 第八个指令是JC指令.如果当前的C不为1,则直接取下一条的指令结束,如果当前的C为1,会调用PCADD把当前的PC加上偏移的offset,最后还是流水机的取指令共操作.
+
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
@@ -845,12 +848,13 @@ end arc;
 	\draw [->] (6, -13.72) -- (6, -14.12);
 	\node [above] at (-3, -11.16) {$\text{IR}_{7654}$ = 1000 $\sim$ 1011};
 	\end{tikzpicture}
-\end{figure}\\
-上图给出了第三组四个指令的周期。\\
-\indent 第九个指令是JZ指令。如果当前的Z不为1,则直接取下一条的指令结束，如果当前的Z为1，会调用PCADD把当前的PC加上偏移的offset，最后还是流水机的取指令共操作。\\
-\indent 第十个指令是JMP指令。第一个周期调用LPC并且打开ABUS开关,把地址送上地址总线，并且写入PC。\\
-\indent 第十一个指令是OUT指令。打开ABUS,作用是把数据送上地址总线,方便观察。\\
-\indent  第十二个指令是SSP指令。作用是把保存在寄存器中的栈指针SP送回SP在存储器中的位置。这个指令会占用两个周期。由于栈指针SP是隐式给出的，因此需要先算出SP的地址[FF]。第一个周期计算$A|(!A)$得到FF，同时打开ABUS把FF送入地址寄存器。第二个周期把数据写入存储器的FF地址。
+\end{figure}
+上图给出了第三组四个指令的周期.\\
+\indent 第九个指令是JZ指令.如果当前的Z不为1,则直接取下一条的指令结束,如果当前的Z为1,会调用PCADD把当前的PC加上偏移的offset,最后还是流水机的取指令共操作.\\
+\indent 第十个指令是JMP指令.第一个周期调用LPC并且打开ABUS开关,把地址送上地址总线,并且写入PC.\\
+\indent 第十一个指令是OUT指令.打开ABUS,作用是把数据送上地址总线,方便观察.\\
+\indent  第十二个指令是SSP指令.作用是把保存在寄存器中的栈指针SP送回SP在存储器中的位置.这个指令会占用两个周期.由于栈指针SP是隐式给出的,因此需要先算出SP的地址[FF].第一个周期计算$A|(!A)$得到FF,同时打开ABUS把FF送入地址寄存器.第二个周期把数据写入存储器的FF地址.
+
 
 \begin{figure}[!h]
     \centering
@@ -875,14 +879,14 @@ end arc;
 	\draw [->] (3, -11.16) -- (3, -11.46);
 
 	\draw [->] (6, -13.28) -- (6, -13.68);
-	\node [above] at (-3, -11.16) {$\text{IR}_{7654}$ = 1000 $\sim$ 1011};
+	\node [above] at (-3, -11.16) {$\text{IR}_{7654}$ = 1100 $\sim$ 1111};
 	\end{tikzpicture}
 \end{figure}
-上图给出了最后一组四个指令的周期。\\
-\indent 第十三个指令是PUSH指令。作用是把数据写入栈顶，并且把栈指针减一。第一周期是把已经读出到寄存器的SP送上地址寄存器，第二周期把数据写入[SP],第三周期把寄存器中的SP减一\\
-\indent 第十四个指令是MOV指令。只有一个周期，通过ALU实现A和B计算后输出A,然后把输出写入B。\\
-\indent 第十四个指令是LST指令。作用是把栈指针SP从存储器中读出。第一个周期和STP一样是计算出栈指针的所在位置FF,第二周期从存储器读出SP然后存到指定寄存器。\\
-\indent d
+上图给出了最后一组四个指令的周期.\\
+\indent 第十三个指令是PUSH指令.作用是把数据写入栈顶,并且把栈指针减一.第一周期是把已经读出到寄存器的SP送上地址寄存器,第二周期把数据写入[SP],第三周期把寄存器中的SP减一\\
+\indent 第十四个指令是MOV指令.只有一个周期,通过ALU实现A和B计算后输出A,然后把输出写入B.\\
+\indent 第十五个指令是STP指令.作用是令STOP信号为1,终止程序.\\
+\indent 第十六个指令是LSP指令.作用是把栈指针SP从存储器中读出.第一个周期和STP一样是计算出栈指针的所在位置FF,第二周期从存储器读出SP然后存到指定寄存器.
 \subsubsection{翻译成硬连线信号}
 SBUS $\leftarrow$
 \begin{enumerate}[\indent\indent]
@@ -1467,7 +1471,74 @@ end arc;
         \node[above] at (-7.5, 1.6) {...};
 	\end{tikzpicture}
 \end{figure}
-本次实验在原指令集的基础上扩增了三条指令压栈指令PUSHS,存栈指针指令SSP,取栈指针指令LSP。同时复用了退栈指令POPS(INC).
+本次实验在原指令集的基础上扩增了三条指令压栈指令PUSHS,存栈指针指令SSP,取栈指针指令LSP.同时复用了退栈指令POPS(INC).
+\subsection{流水机指令格式}
+\section{指令格式}
+\begin{table}[htbp!]
+    \centering
+    \begin{tabular}{p{1.5cm}<{\centering}|p{2cm}<{\centering}|p{4cm}<{\centering}|p{3.5cm}<{\centering}|p{2cm}<{\centering}|p{2cm}<{\centering}}
+        \multirow{2}*{名称}&\multirow{2}*{助记符}&\multirow{2}*{功能}&\multicolumn{3}{c}{指令格式}\\
+        \cline{4-6}~ & ~ & ~ & IR7 IR6 IR5 IR4 &IR3 IR2 & IR1 IR0\\
+        \hline
+        加法 & ADD $R_d$ $R_s$ & $R_d \leftarrow R_d\text{ and } R_s$ & 0001 & $R_d$& $R_s$\\
+        减法 & SUB $R_d$ $R_s$ & $R_d \leftarrow R_d \text{ minus } R_s$ & 0010 & $R_d$& $R_s$\\
+        逻辑与 & AND $R_d$ $R_s$ & $R_d \leftarrow R_d \text{ and } R_s$ & 0011 & $R_d$& $R_s$\\
+        加1 & INC $R_d$ & $R_d \leftarrow R_d \text{ and } 1$ & 0100 & $R_d$& XX\\
+        取数 & LD $R_d$ [$R_s$] & $R_d \leftarrow [R_s]$ & 0101 & $R_d$& $R_s$\\
+
+    \end{tabular}
+\end{table}
+\section{上机调试通用流程}
+在每次实验之前,我们都会先做下面几个工作
+\subsection{写寄存器(100)}
+按照之前的指令流程进行指令操作.具体是：
+\begin{enumerate}[\indent\indent 1]
+	\item $\text{SWCBA}\leftarrow \text{0b100}$
+	\item QD
+	\item $R_0\leftarrow \text{0b10101010}(\text{0xA5})$
+	\item QD
+	\item $R_1\leftarrow \text{0b01010101}(\text{0x5A})$
+	\item QD
+	\item $R_2\leftarrow \text{0b10101010}(\text{0xA5})$
+	\item QD
+	\item $R_3\leftarrow \text{0b01010101}(\text{0x5A})$
+	\item QD
+	\item CLR
+\end{enumerate}
+\subsection{读寄存器(011)}
+按照之前的指令流程进行指令操作.具体是：
+\begin{enumerate}[\indent\indent 1]
+	\item $\text{SWCBA}\leftarrow \text{0b011}$
+	\item QD
+	\item QD
+	\item QD
+	\item CLR
+\end{enumerate}
+如果读出$R_0,R_1,R_2,R_3$无问题,则寄存器信号是可靠的,DBUS,SBUS是可靠的.
+\subsection{运行代码(000)}
+在寄存器中写入$R_0\leftarrow \text{A5}, R_1\leftarrow \text{5A}, R_2\leftarrow \text{5B}$.
+在存储器中写入指令
+\begin{enumerate}[\indent\indent]
+	\item ADD $R_0$ $R_1$, 0001 0001
+	\item SUB $R_0$ $R_2$, 0010 0010
+	\item SUB $R_1$ $R_2$, 0010 0110
+	\item INC $R_0$, 0100 00XX
+	\item STOP, 1110 XXXX
+\end{enumerate}
+检查结果$R_0 = \text{A5}, R_1 = \text{00}, R_2 = \text{5B}$.并且注意信号灯C,Z是否正常.从此可以看出ALU部分功能有效,C,Z标志有效.
+\subsection{进一步执行其他代码}
+至此,花费10分钟就可以初步相信箱子正常工作.\\
+\indent 至此可以自己写其他指令测试其他指令是否有效.\\
+\indent 这里展示其中一个检测栈指令有效性的代码.\\
+\indent 在寄存器中写入$R_0\leftarrow \text{FA}, R_1\leftarrow \text{0C}, R_2\leftarrow \text{00}, R_2\leftarrow \text{55}$.\\
+\indent 在存储器中写入指令:
+\begin{enumerate}[\indent\indent]
+	\item LSP, 1111 1111,
+	\item PUSH $R_0$, 1100 1100,
+	\item PUSH $R_1$, 1100 1101,
+	\item SSP, 1011 1111
+\end{enumerate}
+检查存储器[FF] = FC, [FE] = FA, [FD] = 0C.检查$R_3=\text{FC}$.
 \section{调试过程中的问题及讨论}
 \subsection{代码无法导入箱子或者代码导入箱子以后测试程序仍然发生以前的问题}
 这里暂且不考虑箱子信号的问题,具体原因可能有几个.
@@ -1510,12 +1581,12 @@ end arc;
 \indent 这里我们如何去硬编码SP的地址是个问题.\\
 \indent 深思熟虑以后.我们将SP地址从寄存挪到主存,再到最后敲定一个特殊的地址.我们选择了FF.因为这个根据任意8位2进制数字$A$或上$\overline{A}$永远等于FF.所以限定$A,B$为相同寄存器,就能在一个周期得到硬编码的FF写入AR.最后实际的设计为:\\
 \indent \indent 1.要求A,B选择的寄存器一致;2.第一个周期将$A|\overline{B}$送入AR.3.取出FF上的值到$A$寄存器上.\\
-\indent 这样只需要额外一条指令就能临时得到$SP$，额外另一条指令就能存储$SP$.\\
+\indent 这样只需要额外一条指令就能临时得到$SP$,额外另一条指令就能存储$SP$.\\
 \indent 最后,我们将栈设计为向下生长,将POPS合并到INC SP中.又节约了一条指令空间,将这个指令编码给了另一个指令MOV.
 \subsection{张逸群的总结}
-课程设计让我对计算机组成原理有了更深刻的了解。\\
-\indent 就课程设计的要求来说，流水机器和非流水机的差别不大，无非是什么时候取指令的问题。非流水机需要一个额外的时钟来取值，由于TEC8最多只有3个时钟，也就是说其他操作要在2个时钟内完成，这个给设计带来了很大的不便。流水机在执行的时候顺便取指令，这样能节约出来一个周期。\\
-\indent 设计的时候主要考虑每个信号什么时候应该为1，然后在进程里面相应的地方给输出赋值即可。然后VDHL的进程会在敏感参数表发生改变的时候唤醒。所以不能直接在进程里面修改敏感信号，要新建一个SIGNAL记录有没有修改输出，然后在每个时钟的下降沿修改输出，这样就不会一直唤醒自己了。\\
-\indent 还有个问题是指令的问题，由于TEC8的模式是前四位是指令，后四位是参数，由于后四位只能读入不能输出，所以参数必须要手动给出，而且用不了立即数的形式，这样的结果是一些原本很简单的操作会变得非常麻烦，需要用寄存器中转一下。有些原本可以隐式给出的参数也必须需要手动给出，不过有个例外是FF，这个可以通过ALU算出来，因为$A|(!A)=FF$，同理$A\&(!A)=0$，也可以不用手动给出。不过这样的代价是浪费了一个周期来计算隐式给出的参数。\\
-\indent 剩下的问题都不是太多了，按照求出来的表达式写一下就可以了。
+课程设计让我对计算机组成原理有了更深刻的了解.\\
+\indent 就课程设计的要求来说,流水机器和非流水机的差别不大,无非是什么时候取指令的问题.非流水机需要一个额外的时钟来取值,由于TEC8最多只有3个时钟,也就是说其他操作要在2个时钟内完成,这个给设计带来了很大的不便.流水机在执行的时候顺便取指令,这样能节约出来一个周期.\\
+\indent 设计的时候主要考虑每个信号什么时候应该为1,然后在进程里面相应的地方给输出赋值即可.然后VDHL的进程会在敏感参数表发生改变的时候唤醒.所以不能直接在进程里面修改敏感信号,要新建一个SIGNAL记录有没有修改输出,然后在每个时钟的下降沿修改输出,这样就不会一直唤醒自己了.\\
+\indent 还有个问题是指令的问题,由于TEC8的模式是前四位是指令,后四位是参数,由于后四位只能读入不能输出,所以参数必须要手动给出,而且用不了立即数的形式,这样的结果是一些原本很简单的操作会变得非常麻烦,需要用寄存器中转一下.有些原本可以隐式给出的参数也必须需要手动给出,不过有个例外是FF,这个可以通过ALU算出来,因为$A|(!A)=FF$,同理$A\&(!A)=0$,也可以不用手动给出.不过这样的代价是浪费了一个周期来计算隐式给出的参数.\\
+\indent 剩下的问题都不是太多了,按照求出来的表达式写一下就可以了.
 \end{document}
