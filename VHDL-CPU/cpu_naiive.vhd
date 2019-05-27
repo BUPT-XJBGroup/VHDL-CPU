@@ -101,6 +101,7 @@ begin
 									DRW <= W2;
 									LDZ <= W2;
 									LDC <= W2;
+									CIN <= W2;
 								when "0001" =>  --ADD 														
 									-- ABUS = W2
 									ABUS <= W2;
