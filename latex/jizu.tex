@@ -817,9 +817,9 @@ end arc;
 \end{figure}
 上图给出了第二组四个指令的周期。\\
 \indent 第五个指令是INC指令。M=0, S=0000表明ALU完成自输出运算，CIN=0表明ALU进1，这时候ALU将A侧寄存器作为输入，ABUS将ALU的运算结果$A$打入DBUS，因此DRW将DBUS数据打入A侧寄存器，因此这个指令完成了$A\leftarrow A \text{ plus } 1$。\\
-\indent 第六个指令是LD指令。在指令的第一个周期，M=1,S=1010表明ALU完成自输出\\
-\indent c\\
-\indent d
+\indent 第六个指令是LD指令。在指令的第一个周期，M=1,S=1010表明ALU完成自输出。\\
+\indent 第七个指令是ST指令。在指令的第一个周期，M=1,S=1111表示把地址送到地址寄存器，第二个周期把数据送上数据总线并且写入存储器。\\
+\indent 第八个指令是JC指令。如果当前的C不为1,则直接取下一条的指令结束，如果当前的C为1，会调用PCADD把当前的PC加上偏移的offset，最后还是流水机的取指令共操作。
 \begin{figure}[!h]
     \centering
     \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm,semithick]
@@ -847,10 +847,10 @@ end arc;
 	\end{tikzpicture}
 \end{figure}\\
 上图给出了第三组四个指令的周期。\\
-\indent a\\
-\indent b\\
-\indent c\\
-\indent d
+\indent 第九个指令是JZ指令。如果当前的Z不为1,则直接取下一条的指令结束，如果当前的Z为1，会调用PCADD把当前的PC加上偏移的offset，最后还是流水机的取指令共操作。\\
+\indent 第十个指令是JMP指令。第一个周期调用LPC并且打开ABUS开关,把地址送上地址总线，并且写入PC。\\
+\indent 第十一个指令是OUT指令。打开ABUS,作用是把数据送上地址总线,方便观察。\\
+\indent  第十二个指令是SSP指令。作用是把保存在寄存器中的栈指针SP送回SP在存储器中的位置。这个指令会占用两个周期。由于栈指针SP是隐式给出的，因此需要先算出SP的地址[FF]。第一个周期计算$A|(!A)$得到FF，同时打开ABUS把FF送入地址寄存器。第二个周期把数据写入存储器的FF地址。
 
 \begin{figure}[!h]
     \centering
@@ -879,9 +879,9 @@ end arc;
 	\end{tikzpicture}
 \end{figure}
 上图给出了最后一组四个指令的周期。\\
-\indent a\\
-\indent b\\
-\indent c\\
+\indent 第十三个指令是PUSH指令。作用是把数据写入栈顶，并且把栈指针减一。第一周期是把已经读出到寄存器的SP送上地址寄存器，第二周期把数据写入[SP],第三周期把寄存器中的SP减一\\
+\indent 第十四个指令是MOV指令。只有一个周期，通过ALU实现A和B计算后输出A,然后把输出写入B。\\
+\indent 第十四个指令是LST指令。作用是把栈指针SP从存储器中读出。第一个周期和STP一样是计算出栈指针的所在位置FF,第二周期从存储器读出SP然后存到指定寄存器。\\
 \indent d
 \subsubsection{翻译成硬连线信号}
 SBUS $\leftarrow$
